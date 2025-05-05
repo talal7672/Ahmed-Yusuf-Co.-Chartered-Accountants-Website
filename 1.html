@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Section</title>
+  <style>
+/* ==========================
+   INDUSTRIES SECTION
+   ========================== */
+   .industries-section {
+  padding: 4rem 2rem;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+  color: #1e2a38;
+}
+
+.industries-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Layout: title on left, list on right */
+.industries-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 3rem;
+  align-items: start;
+}
+
+/* Title styling */
+.industries-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Two‐column inside the right area */
+.industries-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Each item */
+.industry-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e8ec;
+}
+
+/* Icon */
+.industry-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* Text */
+.industry-name {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Remove bottom border on last item of each column */
+.industry-column .industry-item:last-child {
+  border-bottom: none;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .industries-content {
+    grid-template-columns: 1fr;
+  }
+  .industries-list {
+    grid-template-columns: 1fr;
+  }
+  .industries-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <section id="industries" class="industries-section">
+    <div class="container">
+      <div class="industries-content">
+        <!-- Left: Section title -->
+        <h2 class="industries-title">Industries</h2>
+  
+        <!-- Right: Two‐column list -->
+        <div class="industries-list">
+          <div class="industry-column">
+            <div class="industry-item">
+              <img src="img/icons/banking.svg" alt="" class="industry-icon">
+              <span class="industry-name">Banking and Finance</span>
+            </div>
+            <div class="industry-item">
+              <img src="img/icons/healthcare.svg" alt="" class="industry-icon">
+              <span class="industry-name">Sciences and Healthcare</span>
+            </div>
+            <div class="industry-item">
+              <img src="img/icons/government.svg" alt="" class="industry-icon">
+              <span class="industry-name">Government and Communities</span>
+            </div>
+            <div class="industry-item">
+              <img src="img/icons/technology.svg" alt="" class="industry-icon">
+              <span class="industry-name">Technology and Software</span>
+            </div>
+            <div class="industry-item">
+              <img src="img/icons/power.svg" alt="" class="industry-icon">
+              <span class="industry-name">Power and Utilities</span>
+            </div>
+          </div>
+          <div class="industry-column">
+            <div class="industry-item">
+              <img src="img/icons/education.svg" alt="" class="industry-icon">
+              <span class="industry-name">Education and Training</span>
+            </div>
+            <div class="industry-item">
+              <img src="img/icons/hospitality.svg" alt="" class="industry-icon">
+              <span class="industry-name">Hospitality and Leisure</span>
+            </div>
+            <div class="industry-item">
+              <img src="img/icons/manufacturing.svg" alt="" class="industry-icon">
+              <span class="industry-name">Manufacturing and Industry</span>
+            </div>
+            <div class="industry-item">
+              <img src="img/icons/automotive.svg" alt="" class="industry-icon">
+              <span class="industry-name">Automotive and Transportation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  </section>
+  
+  
+</html>
