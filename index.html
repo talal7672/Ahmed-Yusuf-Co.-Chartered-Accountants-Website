@@ -1,378 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet"> 
-  <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  
 
-  <title>B Kabir & Law Associates</title>
-  </head>
-  
-  
+
+  <title>AYC Chartered Accountants</title>
+</head>
 
 
 
 
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Navbar</title>
   <style>
-    /* Smooth transition for the mobile menu */
-    #mobile-menu {
-      top: 80px;
-      transform: translateX(-100%) scale(0.8); /* Start off-screen with scale */
-      opacity: 0;
-      visibility: hidden;
-      transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease-in-out;
+    /* Reset & base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; }
+
+    /* Navbar container full-width */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
     }
-  
-    /* When the menu is visible, slide it in */
-    #mobile-menu.visible {
-      transform: translateX(0) scale(1);
-      opacity: 1;
-      visibility: visible; /* Make visible when active */
+    .navbar .containers {
+      width: 100%;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 110px;
     }
-  
-    /* Hamburger menu lines */
-    .hamburger-icon path {
-      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease-in-out;
+
+    /* Logo */
+    .logo {
+      margin-left: 70px;
     }
-  
-    /* Top line transforms to a diagonal */
-    .hamburger-icon.open path:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
-    }
-  
-    /* Middle line disappears */
-    .hamburger-icon.open path:nth-child(2) {
-      opacity: 0;
-    }
-  
-    /* Bottom line transforms to a diagonal */
-    .hamburger-icon.open path:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-  
-    /* Ensuring text stays in one line */
-    .single-line-heading {
-      white-space: nowrap;
-      overflow: visible;
-      text-overflow: unset;
+    .logo img {
+      max-height: 50px;
       width: auto;
-      margin: 0;
+      display: block;
     }
-  
-    /* Hero container with centered text */
-    .hero-container {
+
+    /* Nav links */
+    .nav-links {
+      list-style: none;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100vh;
+      gap: 32px;
+      margin-left: 24px;
+      padding-left: 120px;
+      font-family: "Josefin Sans", sans-serif;
     }
-  
-    /* Fixed navbar */
-    .sticky-navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      padding-bottom: 4px;
+      position: relative;
+      text-decoration: none;
     }
-  
-    .navbar-height {
-      height: 80px;
+    .nav-links a.active {
+      font-weight: 600;
     }
-  
-    .navbar-container {
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2px;
+      background: #000;
+    }
+
+    /* Actions */
+    .nav-actions {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      height: 100%;
+      gap: 24px;
+      margin-left: auto;
+      margin-right: 24px;
     }
-  
-    /* Mobile menu styling */
-    .navbar-container a {
-      transition: color 0.3s ease;
+    .search-icon {
+      width: 25px;
+      height: 25px;
+      display: inline-block;
     }
-  
-    .navbar-container a:hover {
-      color: #B1976B;
+    .btn-quote {
+      background: #000;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-family: "Josefin Sans", sans-serif;
+      font-weight: 600;
+      padding: 46px 70px;
+      border-radius: 0;
+      transition: background 0.2s;
+      text-decoration: none;
+      margin-right: -25px;
+    }
+    .btn-quote:hover {
+      background: #333;
+    }
+
+    /* Hamburger toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: 24px;
+      transition: transform 0.3s ease;
+    }
+    .nav-toggle .bar {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #000;
+      margin: 4px 0;
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+
+      /* hide quote button entirely on mobile */
+      .btn-quote {
+        display: none !important;
+      }
+
+      .navbar.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 110px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #e5e5e5;
+        z-index: 1000;
+      }
+      .navbar.open .nav-links li + li {
+        border-top: 1px solid #eee;
+      }
+      .navbar.open .nav-links a {
+        padding: 16px 24px;
+      }
+      .navbar.open .nav-actions {
+        display: flex;
+        flex-direction: column;
+        padding: 36px 24px;
+        gap: 16px;
+        border-top: 1px solid #eee;
+        margin: 0;
+      }
+
+      /* hamburger → “X” animation */
+      .navbar.open .nav-toggle .bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .navbar.open .nav-toggle .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .navbar.open .nav-toggle .bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
     }
   </style>
-  
-  <body class="bg-white">
-    <div class="bg-white">
-      <header class="sticky-navbar navbar-height">
-        <nav class="navbar-container p-4 lg:px-8 bg-white" aria-label="Global">
-          <div class="flex lg:flex-1">
-            <a href="index.html" class="-m-1.5 p-1.5">
-              <span class="sr-only">Your Company</span>
-              <img class="h-11 w-auto" src="img/ayc_logo.png" alt="Company Logo">
-            </a>
-          </div>
-  
-          <!-- Mobile Menu Button -->
-          <div class="flex lg:hidden">
-            <button 
-              type="button" 
-              onclick="toggleMenu()" 
-              class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              <span class="sr-only">Open main menu</span>
-              <svg class="h-6 w-6 hamburger-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
-              </svg>
-            </button>
-          </div>
-  
-          <div class="hidden lg:flex lg:items-center lg:gap-x-8">
-            <a href="index.html" class="text-sm font-semibold text-gray-900">Home</a>
-            <a href="about.html" class="text-sm font-semibold text-gray-900">About</a>
-            <a href="practice1.html" class="text-sm font-semibold text-gray-900">Services</a>
-            <a href="attorney.html" class="text-sm font-semibold text-gray-900">Attorney</a>
-            <a href="associates.html" class="text-sm font-semibold text-gray-900">Associates</a>
-            <a href="contact.html" class="text-sm font-semibold text-gray-900">Contact</a>
-          </div>
-  
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" class="text-sm font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </nav>
-  
-        <!-- Mobile Navigation Links -->
-        <div 
-          id="mobile-menu" 
-          class="fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg flex flex-col space-y-2 px-6 pt-4 pb-6"
-        >
-          <a href="index.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Home</a>
-          <a href="about.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">About</a>
-          <a href="practice1.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Services</a>
-          <a href="attorney.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Attorney</a>
-          <a href="associates.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Associates</a>
-          <a href="contact.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Contact</a>
-          <a href="https://maps.app.goo.gl/5n88uqXQPzYyFhso7?g_st=ic" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Live Location</a>
-          <a href="#" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Log in</a>
-        </div>
-      </header>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="containers">
+      <a href="#" class="logo">
+        <img src="img/ayc_logo.png" alt="TaxHelp Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Pages</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="search-icon" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+        <a href="#" class="btn-quote">Request Quote</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
-  
-    <script>
-      function toggleMenu() {
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.querySelector('.hamburger-icon');
-        
-        menu.classList.toggle('visible');
-        icon.classList.toggle('open');
-      }
-    </script>
-  
-  
-  
-  
-  
+  </nav>
 
-  
-      
-      
-    
+  <script>
+    const nav = document.querySelector('.navbar');
+    document.querySelector('.nav-toggle')
+      .addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+</body>
+</html>
 
 
 
 
 
 
- 
 
-  <div class="hero-section">
-    <div class="container">
-      <div class="content">
-  
-        <div class="text">
-          <h2 class="fade-in">
-            Helping People<br>
-            acheive all their<br>
-            Financial Goals!
-          </h2>
-  
-          <article class="fade-in">
-            Our specialist team of consultants understands the importance of lasting relationships with clients to deliver specific investment solutions.
-          </article>
-  
-          <!-- Buttons -->
-          <div class="hero-buttons fade-in">
-            <a href="#services" class="btn btn-primary">
-              Explore Our Services <span class="arrow">→</span>
-            </a>
-            <a href="#contact" class="btn btn-outline">
-              Contact Us
-            </a>
-          </div>
-  
-          <!-- Feature Row -->
-        </div>
-  
 
-  
+
+<div class="hero-section">
+  <div class="container">
+    <div class="hero-content fade-in">
+      <p class="subtitle">Your Path to Financial Success</p>
+      <h2>
+        Financial Planning Of<br>
+        Your Company
+      </h2>
+      <article>
+        Our specialist team of consultants understands the importance of lasting relationships<br> with clients to
+        deliver specific investment solutions.
+      </article>
+      <div class="hero-buttons">
+        <a href="#services" class="btn btn-primary">
+          Explore Our Services </span>
+        </a>
       </div>
     </div>
   </div>
-  
-  
+</div>
 
+<style>
 
-
-  
-      
-      <style>
-        * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px); 
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.fade-in {
-  opacity: 0; 
-  animation: fadeIn 1s ease-out forwards; 
-}
-
-
-.fade-in:nth-child(1) {
-  animation-delay: 0.5s;
-}
-
-.fade-in:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.fade-in:nth-child(3) {
-  animation-delay: 1.5s;
-}
-
-
-
-
-
-
-/* Ensure the hero section spans the full viewport height */
-.hero-section {
-  position: relative;
-  min-height: 100vh; /* Default height for desktop */
-  overflow: hidden;
-  display: flex;
-  align-items: center; /* Vertically center the content */
-  justify-content: center;
-  color: white;
-  
-}
-
-/* Hero background with gradient and blur */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('img/blue_bank.jpg'); /* Gradient added on top of background image */
-  background-size: cover;
-  background-attachment: fixed; /* Parallax Effect */
-  background-position: center center; /* Ensure the background is centered */
-  z-index: -1;
-}
-
-/* Ensure container is centered and has appropriate padding */
+  /* keep your container-width and centering exactly as in the rest of your site */
 .container {
   width: 100%;
   max-width: 1200px;
-  padding: 0 0px;
+  padding: 0 20px;    /* ← adjust this to whatever your other sections use */
   margin: 0 auto;
 }
 
-.content {
+.hero-section {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center; /* Vertically center content */
-  justify-content: space-between; /* Space out text and image */
-  width: 100%; /* Make sure content takes full width */
+  align-items: center;
+  justify-content: center;
+  min-height: 89.815vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  /* no extra side padding here—.container handles it */
 }
 
-/* Styling for text block */
-.text {
-  flex: 1;
-  max-width: 50%;
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    url('img/European_union.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.hero-content {
   text-align: left;
-  padding-top: 50px; /* Add padding to the top for spacing */
 }
 
-.text h2 {
-  font-size: 70px; /* Slightly smaller for better fit */
-  margin-bottom: 20px;
-  line-height: 1.1;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  padding-top: 20px;  
-}
-
-.hero-section .text article {
+.subtitle {
   font-family: 'Josefin Sans', sans-serif;
-  font-style: normal;
-  font-size: 18px;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.hero-content h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -2px;
+}
+
+.hero-content article {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.4rem;
   line-height: 1.4;
-  color: #ffffff;
-  /* etc… */
+  margin-bottom: 2rem;
+  font-weight: 300;
+  color: #f0f0f0;
 }
 
-/* Container for the two buttons */
 .hero-buttons {
-  margin-top: 2rem;      /* space above buttons */
-  margin-bottom: 40px;
-  display: flex;
-  gap: 1rem;               /* space between buttons */
+  display: inline-flex;
 }
 
-/* Base styles for both buttons */
 .hero-buttons .btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   padding: 0.75rem 1.75rem;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1rem;
-  font-weight: 500;
-  border-radius: 999px;     /* fully pill-shaped */
+  border-radius: 0px;
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s;
 }
 
-/* Primary filled button */
 .btn-primary {
   background-color: #051423;
-  color: #1a1a1a;           /* dark text */
+  color: #1a1a1a;
 }
 .btn-primary .arrow {
   margin-left: 0.5rem;
@@ -382,147 +354,31 @@
   background-color: #f2f2f2;
 }
 
-/* Secondary outline button */
-.btn-outline {
-  background-color: transparent;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-}
-.btn-outline:hover {
-  background-color: rgba(255,255,255,0.1);
-}
-
-/* If you want the fade-in animation on the buttons too: */
-.fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.6s forwards;
-  animation-delay: 0.4s;
-}
+/* entrance animation */
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-/* FEATURES ROW */
-.hero-features {
-  margin-top: 50px;
-  display: flex;
-  gap: 2rem;
-}
-
-.feature-item {
-  flex: 1;
-}
-
-.feature-header {
-  display: flex;
-  align-items: center;
-}
-
-.number {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #fff;
-}
-
-.line {
-  flex: 1;
-  height: 1px;
-  background: #fff;
-  margin-left: 0.5rem;
-}
-
-.feature-title {
-  margin-top: 0.5rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 0.8rem;
-  color: #fff;
-}
-
-/* reuse your fade-in animation */
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
   animation: fadeInUp 0.6s forwards;
 }
+.fade-in:nth-child(1) { animation-delay: 0.5s; }
+.fade-in:nth-child(2) { animation-delay: 1s; }
+.fade-in:nth-child(3) { animation-delay: 1.5s; }
+.fade-in:nth-child(4) { animation-delay: 2s; }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-
-
-
-
-/* Mobile View */
+/* mobile */
 @media (max-width: 768px) {
-  .hero-section {
-    min-height: 110vh; /* Increase height for mobile to ensure content fits */
-  }
-
-  .content {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center; /* Vertically center in mobile view */
-    height: 100%; /* Ensure full height is used */
-  }
-
-  .text {
-    max-width: 100%;
-    padding-top: 100px; /* Doubled the padding above the text for better spacing */
-    font-size: 2.4rem; /* Adjust font size for mobile */
-    text-align: center; /* Center align text on mobile */
-  }
-
-  .text h2 {
-    font-size: 3.5rem; /* Make "INTRODUCE" fit properly on mobile */
-    line-height: 1.1; /* Adjust line height */
+  .hero-section { min-height: 110vh; }
+  .hero-content {
     text-align: center;
   }
-
-  .graphic {
-    max-width: 100%;
-    margin-top: 90px;
-  }
-
-  .text p1 {
-  text-align: center; /* Center the text horizontally */
-  padding: 0 20px; /* Add padding on both sides */
-  margin: 0 auto; /* Center the paragraph */
-  width: 100%; /* Ensure it takes the full width */
-  max-width: 90%; /* Prevent the text from stretching too far */
-  box-sizing: border-box; /* Include padding in the element's width calculation */
-  overflow-wrap: break-word; /* Allow long words to break and wrap within the box */
+  .hero-content h2 { font-size: 3.5rem; }
+  .subtitle { font-size: 1rem; }
 }
 
-
-  /* Disable fixed background attachment for mobile and adjust positioning */
-  .hero-section::before {
-    background-attachment: scroll; /* Disable the fixed background on mobile */
-    background-position: center top; /* Keep the background centered */
-  }
-}
-
-      </style>
-
-
-      
-      
-      
-      
-      
-      
-      
+</style>
 
 
 
@@ -531,1785 +387,1952 @@
 
 
 
-<!--ABOUT CSS START-->
 
-<style>
-/* ==========================
+
+
+
+
+
+
+
+
+
+  <!--ABOUT CSS START-->
+
+  <style>
+    /* ==========================
 ABOUT SECTION
 ========================== */
 
-.about-section {
-background: #fff;
-padding: 4rem 2rem;
-color: #111;
-font-family: 'Poppins', sans-serif;
-}
-                                      
-.about-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  /* make left column wider, right narrower */
-  grid-template-columns: 3fr 2fr;
-  /* bigger gutter between them */
-  column-gap: 4rem;
-  /* ensure both start at the top of their grid cell */
-  align-items: start;
-}
+    .about-section {
+      background: #fff;
+      padding: 4rem 2rem;
+      color: #111;
+      font-family: 'Poppins', sans-serif;
+    }
 
-.about-right {
-  /* drop it down a bit to sit lower than the headline */
-  margin-top: 13rem;
-}
+    .about-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      /* make left column wider, right narrower */
+      grid-template-columns: 3fr 2fr;
+      /* bigger gutter between them */
+      column-gap: 4rem;
+      /* ensure both start at the top of their grid cell */
+      align-items: start;
+    }
 
-                                      
-/* Left column */
-.about-intro {
-font-size: 1rem;
-font-family: "Josefin Sans", sans-serif;
-color: #555;
-margin-bottom: 0.5rem;
-}
-                                      
-.about-heading {
-font-size: 2.1rem;
-line-height: 1.2;
-font-weight: 700;
-margin: 0;
-}
-                                      
-/* Right column text */
-.about-text {
-font-family: "Josefin Sans", sans-serif;
-
-font-weight: 700;
-font-size: 0.9rem;
-line-height: 1.4;
-color: #111;
-margin-bottom: 1rem;
-}
-                                      
-.about-text-secondary {
-font-size: 1rem;
-font-family: "Josefin Sans", sans-serif;
-line-height: 1.4;
-color: #595959;
-margin-bottom: 2rem;
-}
-                                      
-/* Footer: button + signature */
-.about-footer {
-display: flex;
-align-items: center;
-gap: 2rem;
-}
-                                      
-                                      .btn-primary {
-                                        display: inline-flex;
-                                        align-items: center;
-                                        padding: 0.75rem 1.5rem;
-                                        background-color: #1e2a38;
-                                        color: #fff;
-                                        border-radius: 999px;
-                                        text-decoration: none;
-                                        font-weight: 500;
-                                        transition: background 0.2s;
-                                      }
-                                      
-                                      .btn-primary .arrow {
-                                        margin-left: 0.5rem;
-                                        font-weight: 700;
-                                      }
-                                      
-                                      .btn-primary:hover {
-                                        background-color: #16202b;
-                                      }
-                                      
-                                      .signature {
-                                        display: flex;
-                                        align-items: center;
-                                        gap: 1rem;
-                                      }
-                                      
-                                      .sign-text {
-                                        display: flex;
-                                        flex-direction: column;
-                                      }
-                                      
-                                      .sign-name {
-                                        font-weight: 600;
-                                        font-size: 1rem;
-                                        color: #111;
-                                      }
-                                      
-                                      .sign-role {
-                                        font-family: 'Josefin Sans', sans-serif;
-                                        font-size: 0.875rem;
-                                        color: #777;
-                                      }
-                                      
-                                      .sign-img {
-                                        height: 40px;
-                                        object-fit: contain;
-                                      }
-                                      
-                                      /* Responsive: stack on narrow viewports */
-                                      @media (max-width: 768px) {
-                                        .about-section .container {
-                                          grid-template-columns: 1fr;
-                                          text-align: center;
-                                        }
-                                        .about-footer {
-                                          justify-content: center;
-                                          flex-direction: column;
-                                          gap: 1rem;
-                                        }
-                                      }
-                                      
-                                        </style>
-                                      </head>
-                                      <body>
-                                        <section id="about" class="about-section">
-                                          <div class="container">
-                                            <!-- Left column: intro + big heading -->
-                                            <div class="about-left">
-                                              <p class="about-intro">
-                                                We help you start growing your wealth & achieve outcomes!
-                                              </p>
-                                              <h2 class="about-heading">
-                                                Committed to provide accurate advice to help clients take finance decisions & maintaining a long lasting relations with a global strategy to solve challenges.
-                                              </h2>
-                                            </div>
-                                        
-                                            <!-- Right column: paragraphs + button + signature -->
-                                            <div class="about-right">
-                                              <p class="about-text">
-                                                Our specialist consultants understands the importance of maintaining a long lasting relationships with clients to deliver investment solutions for success with a team of experts with in depth knowledge.
-                                              </p>
-                                              <p class="about-text-secondary">
-                                                We also offer expert guidance, unlocking your potential for growth that helps proof business investment as advisors!
-                                              </p>
-                                        
-                                              <div class="about-footer">
-                                                <a href="#read-more" class="btn-primary">
-                                                  Read More <span class="arrow">→</span>
-                                                </a>
-                                                <div class="signature">
-                                                  <div class="sign-text">
-                                                    <span class="sign-name">Maria Andaloro</span>
-                                                    <span class="sign-role">The Founder</span>
-                                                  </div>
-                                                  <img src="img/signature.png" alt="Maria’s signature" class="sign-img">
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </section>
-
-                                    <!--ABOUT CSS END-->
+    .about-right {
+      /* drop it down a bit to sit lower than the headline */
+      margin-top: 13rem;
+    }
 
 
+    /* Left column */
+    .about-intro {
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-family: "Josefin Sans", sans-serif;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
 
-                                    
+    .about-heading {
+      font-size: 2.1rem;
+      line-height: 1.4;
+      font-weight: 700;
+      margin: 0;
+    }
 
-                                    <!--pracice card title start-->
+    /* Right column text */
+    .about-text {
+      font-family: "Josefin Sans", sans-serif;
 
-<style>
-/* ==========================
-SERVICES SECTION
-========================== */
-.services-section {
-position: relative;
-padding: 6rem 2rem;
-background: #fff;
-overflow: hidden;
-font-family: 'Josefin Sans', sans-serif;
-color: #111;
-}
-                                      .services-section .container {
-                                        max-width: 1200px;
-                                        margin: 0 auto;
-                                      }
-                                      
-                                      /* Header */
-                                      .services-header {
-                                        display: grid;
-                                        grid-template-columns: 1fr auto;
-                                        align-items: center;
-                                        gap: 2rem;
-                                        margin-bottom: 3rem;
-                                      }
-                                      .services-intro {
-                                        font-size: 0.9rem;
-                                        color: #555;
-                                        margin: 0 0 0.25rem;
-                                      }
-                                      .services-title {
-                                        font-family: 'Poppins', sans-serif !important;
-                                        font-size: 2.25rem;
-                                        line-height: 1.2;
-                                        font-weight: 700;
-                                        margin: 0;
-                                      }
-                                      .services-header-cta .btn-primary {
-                                        padding: 0.75rem 1.75rem;
-                                        border-radius: 999px;
-                                      }
-                                      
-                                      /* Card grid */
-                                      .services-cards {
-                                        display: grid;
-                                        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                                        gap: 2rem;
-                                        margin-bottom: 3rem;
-                                        align-items: stretch;
-                                      }
-                                      .service-card {
-                                        position: relative;
-                                        background: #fff;
-                                        border: 1px solid #e5e8ec;
-                                        padding: 2rem 1.5rem 1.5rem;
-                                        display: flex;
-                                        flex-direction: column;
-                                        display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 450px;
-                                      }
-                                      .service-icon {
-                                        width: 110px;
-                                        height: auto;
-                                        margin-bottom: 1.5rem;
-                                      }
-                                      .service-divider {
-                                        flex-shrink: 0;
-                                        height: 1px;
-                                        background: #e5e8ec;
-                                        margin-bottom: 1.5rem;
-                                      }
-                                      .service-title {
-                                        font-size: 1.25rem;
-                                        font-weight: 600;
-                                        margin: 0 0 0.75rem;
-                                        color: #1e2a38;
-                                      }
-                                      .service-desc {
-                                        flex-grow: 1;
-                                        font-size: 0.95rem;
-                                        line-height: 1.6;
-                                        color: #555;
-                                        margin-bottom: 1.5rem;
-                                      }
-                                      .service-link {
-                                        align-self: start;
-                                        font-size: 0.95rem;
-                                        font-weight: 500;
-                                        color: #1e2a38;
-                                        text-decoration: none;
-                                        display: inline-flex;
-                                        align-items: center;
-                                      }
-                                      .link-circle {
-                                        display: inline-flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        background: #1e2a38;
-                                        color: #fff;
-                                        border-radius: 50%;
-                                        width: 45px;
-                                        height: 45px;
-                                        margin-right: 0.5rem;
-                                        font-size: 0.8rem;
-                                      }
-                                      
-                                      /* Footer */
-                                      .services-footer {
-                                        display: flex;
-                                        flex-wrap: wrap;
-                                        align-items: center;
-                                        justify-content: space-between;
-                                        gap: 1rem;
-                                      }
-                                      .services-footer-text {
-                                        font-size: 0.95rem;
-                                        color: #333;
-                                        max-width: 800px;
-                                        margin: 0;
-                                      }
-                                      .services-nav {
-                                        display: flex;
-                                        gap: 0.75rem;
-                                      }
-                                      .nav-btn {
-                                        width: 44px;
-                                        height: 44px;
-                                        border: none;
-                                        border-radius: 50%;
-                                        background: rgba(30,42,56,0.1);
-                                        color: #1e2a38;
-                                        font-size: 1.25rem;
-                                        cursor: pointer;
-                                        transition: background 0.2s;
-                                      }
-                                      .nav-btn:hover {
-                                        background: rgba(30,42,56,0.2);
-                                      }
-                                      
-                                      /* Decorative background (faint pattern) */
-                                      .services-bg {
-                                        position: absolute;
-                                        top: 50%;
-                                        right: -5%;
-                                        transform: translateY(-50%);
-                                        opacity: 0.15;
-                                        pointer-events: none;
-                                      }
-                                      .services-bg img {
-                                        max-width: 400px;
-                                        display: block;
-                                      }
-                                      
-                                      /* Responsive tweaks */
-                                      @media (max-width: 768px) {
-                                        .services-header {
-                                          grid-template-columns: 1fr;
-                                          text-align: center;
-                                        }
-                                        .services-header-cta {
-                                          margin-top: 1rem;
-                                        }
-                                        .services-footer {
-                                          flex-direction: column;
-                                          align-items: center;
-                                        }
-                                        .services-footer-text {
-                                          text-align: center;
-                                        }
-                                      }
-                                      
-                                        </style>
-                                      </head>
-                                      <body>
-                                        <section id="services" class="services-section">
-                                          <div class="container">
-                                        
-                                            <!-- Header: small intro + big title + right-aligned button -->
-                                            <div class="services-header">
-                                              <div class="services-header-text">
-                                                <p class="services-intro">Helping in make smart financial decisions.</p>
-                                                <h2 class="services-title">
-                                                  Putting the right solutions<br>
-                                                  and methods in place.
-                                                </h2>
-                                              </div>
-                                              <div class="services-header-cta">
-                                                <a href="#all-services" class="btn btn-primary">
-                                                  Explore All Services <span class="arrow">→</span>
-                                                </a>
-                                              </div>
-                                            </div>
-                                        
-                                            <!-- Card grid -->
-                                            <div class="services-cards">
-                                              <div class="service-card">
-                                                <img src="img/practicecute5.png" alt="Financial Planning" class="service-icon">
-                                                <div class="service-divider"></div>
-                                                <h3 class="service-title">Financial Planning</h3>
-                                                <p class="service-desc">
-                                                  Financial planning is the process of taking a comprehensive look at your financial situation & building a specific financial plan to reach your goals.
-                                                </p>
-                                                <a href="#financial-planning" class="service-link">
-                                                  <span class="link-circle">→</span> Explore More
-                                                </a>
-                                              </div>
-                                        
-                                              <div class="service-card">
-                                                <img src="img/practicecute5.png" alt="Wealth Management" class="service-icon">
-                                                <div class="service-divider"></div>
-                                                <h3 class="service-title">Wealth Management</h3>
-                                                <p class="service-desc">
-                                                  Wealth management is an investment advisory practice focused on serving the needs of wealthy individuals, and practice a wide range of services.
-                                                </p>
-                                                <a href="#wealth-management" class="service-link">
-                                                  <span class="link-circle">→</span> Explore More
-                                                </a>
-                                              </div>
-                                        
-                                              <div class="service-card">
-                                                <img src="img/practicecute5.png" alt="Portfolio Consulting" class="service-icon">
-                                                <div class="service-divider"></div>
-                                                <h3 class="service-title">Portfolio Consulting</h3>
-                                                <p class="service-desc">
-                                                  Control and tax efficiency are important to many investors. That’s why we offer many managed accounts for a diverse range of investment objectives.
-                                                </p>
-                                                <a href="#portfolio-consulting" class="service-link">
-                                                  <span class="link-circle">→</span> Explore More
-                                                </a>
-                                              </div>
-                                            </div>
-                                        
-                                            <!-- Footer: supporting text + nav arrows -->
-                                            <div class="services-footer">
-                                              <p class="services-footer-text">
-                                                No matter how big you are and in what industries or sectors you do business, we can help you work smarter, provide support and help you achieve your business goals. Speak to one of our advisers and <strong>get free advice!</strong>
-                                              </p>
-                                              <div class="services-nav">
-                                                <button class="nav-btn prev">←</button>
-                                                <button class="nav-btn next">→</button>
-                                              </div>
-                                            </div>
-                                        
-                                            <!-- Optional decorative background pattern -->
-                                            <div class="services-bg">
-                                              <img src="img/pattern-faint.svg" alt="" aria-hidden="true">
-                                            </div>
-                                        
-                                          </div>
-                                        </section>
-                                        
-                                        <!--client intro end-->  
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      color: #111;
+      margin-bottom: 1rem;
+      margin-top: 50px;
+      margin-left: -170px;
+    }
 
+    .about-text-secondary {
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-family: "Josefin Sans", sans-serif;
+      line-height: 1.4;
+      color: #595959;
+      margin-bottom: 2rem;
+      margin-left: -170px;
+      margin-top: 30px;
+    }
 
-<style>
-/* ==========================
-INDUSTRIES SECTION
-========================== */
-.industries-section {
-                                            padding: 4rem 2rem;
-                                            background: #fff;
-                                            font-family: 'Poppins', sans-serif;
-                                            color: #1e2a38;
-                                          }
-                                          
-                                          .industries-section .container {
-                                            max-width: 1200px;
-                                            margin: 0 auto;
-                                          }
-                                          
-                                          /* Layout: title on left, list on right */
-                                          .industries-content {
-                                            display: grid;
-                                            grid-template-columns: auto 1fr;
-                                            column-gap: 3rem;
-                                            align-items: start;
-                                          }
-                                          
-                                          /* Title styling */
-                                          .industries-title {
-                                            font-family: "Poppins", sans-serif;
-                                            padding-right: 100px;
-                                            font-size: 2rem;
-                                            font-weight: 700;
-                                            margin: 0;
-                                          }
-                                          
-                                          /* Two‐column inside the right area */
-                                          .industries-list {
-                                            display: grid;
-                                            grid-template-columns: repeat(2, 1fr);
-                                            gap: 2rem;
-                                          }
-                                          
-                                          /* Each item */
-                                          .industry-item {
-                                            display: flex;
-                                            align-items: center;
-                                            padding: 0.75rem 0;
-                                            border-bottom: 1px solid #e5e8ec;
-                                          }
-                                          
-                                          /* Icon */
-                                          .industry-icon {
-                                            width: 45px;
-                                            height: auto;
-                                            margin-right: 1rem;
-                                            flex-shrink: 0;
-                                          }
-                                          
-                                          /* Text */
-                                          .industry-name {
-                                            font-size: 1.0rem;
-                                            font-weight: 700;
-                                            font-family: "Josefin Sans", sans-serif;
-                                            line-height: 1.4;
-                                          }
-                                          
-                                          /* Remove bottom border on last item of each column */
-                                          .industry-column .industry-item:last-child {
-                                            border-bottom: none;
-                                          }
-                                          
-                                          /* Responsive: stack on small screens */
-                                          @media (max-width: 768px) {
-                                            .industries-content {
-                                              grid-template-columns: 1fr;
-                                            }
-                                            .industries-list {
-                                              grid-template-columns: 1fr;
-                                            }
-                                            .industries-title {
-                                              text-align: center;
-                                              margin-bottom: 1.5rem;
-                                            }
-                                          }
-                                          
-                                          
-                                          
-                                            </style>
-                                          </head>
-                                          <body>
-                                            <section id="industries" class="industries-section">
-                                              <div class="container">
-                                                <div class="industries-content">
-                                                  <!-- Left: Section title -->
-                                                  <h2 class="industries-title">Industries</h2>
-                                            
-                                                  <!-- Right: Two‐column list -->
-                                                  <div class="industries-list">
-                                                    <div class="industry-column">
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Banking and Finance</span>
-                                                      </div>
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Sciences and Healthcare</span>
-                                                      </div>
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Government and Communities</span>
-                                                      </div>
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Technology and Software</span>
-                                                      </div>
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Power and Utilities</span>
-                                                      </div>
-                                                    </div>
-                                                    <div class="industry-column">
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Education and Training</span>
-                                                      </div>
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Hospitality and Leisure</span>
-                                                      </div>
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Manufacturing and Industry</span>
-                                                      </div>
-                                                      <div class="industry-item">
-                                                        <img src="img/practicecute1.png" alt="" class="industry-icon">
-                                                        <span class="industry-name">Automotive and Transportation</span>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </section>                                        
+    /* Footer: button + signature */
+    .about-footer {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background-color: #1e2a38;
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
 
+    .btn-primary .arrow {
+      margin-left: 0.5rem;
+      font-weight: 700;
+    }
 
-<!-- ==========================
-     STATISTICS SECTION
-     ========================== -->
-     <section id="stats" class="stats-section">
+    .btn-primary:hover {
+      background-color: #16202b;
+    }
+
+    .signature {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sign-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sign-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #111;
+    }
+
+    .sign-role {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.875rem;
+      color: #777;
+    }
+
+    .sign-img {
+      height: 40px;
+      object-fit: contain;
+    }
+
+    /* Responsive: stack on narrow viewports */
+    @media (max-width: 768px) {
+      .about-section .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-footer {
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+  </head>
+
+  <body>
+    <section id="about" class="about-section">
       <div class="container">
-        <p class="stats-subtitle">
-          We build trust and maintaining a long lasting relations!
-        </p>
-        <h2 class="stats-title">
-          Our specialist team understands the<br> importance of long lasting relationships<br> with our clients to deliver specific<br> investment solutions.
-        </h2>
-    
-        <!-- Bars go here -->
-        <div class="stats-chart"></div>
-    
-        <p class="stats-note">
-          These numbers changes and updates monthly.
-        </p>
+        <!-- Left column: intro + big heading -->
+        <div class="about-left">
+          <p class="about-intro">
+            We help you start growing your wealth & achieve outcomes!
+          </p>
+          <h2 class="about-heading">
+            Committed to provide accurate advice to help clients take finance decisions & maintaining a long lasting
+            relations with. a global strategy to solve challenges.
+          </h2>
+        </div>
+
+        <!-- Right column: paragraphs + button + signature -->
+        <div class="about-right">
+          <p class="about-text">
+            Our specialist consultants understands the importance of maintaining a long lasting relationships with
+            clients to deliver investment solutions for success with a team of experts with in depth knowledge.
+          </p>
+          <p class="about-text-secondary">
+            We also offer expert guidance, unlocking your potential for growth that helps proof business investment as
+            advisors!
+          </p>
+
+          <div class="about-footer">
+            <a href="#read-more" class="btn-primary">
+              Read More <span class="arrow">→</span>
+            </a>
+            <div class="signature">
+              <div class="sign-text">
+                <span class="sign-name">MA Yusuf</span>
+                <span class="sign-role">The Founder</span>
+              </div>
+              <img src="img/signature.png" alt="Signature" class="sign-img">
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    
+
+    <!--ABOUT CSS END-->
+
+
+
+
+
+    <!--pracice card title start-->
+
     <style>
-      .stats-section {
-        background: #0d1b2a;
-        color: #fff;
-        padding: 4rem 2rem;
-        font-family: 'Poppins', sans-serif;
+      /* ==========================
+SERVICES SECTION
+========================== */
+      .services-section {
+        position: relative;
+        padding: 6rem 2rem;
+        background: #fff;
+        overflow: hidden;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #111;
       }
-      .stats-section .container {
+
+      .services-section .container {
         max-width: 1200px;
         margin: 0 auto;
       }
-      .stats-subtitle {
-        font-size: 1rem;
-        font-family: "Josefin Sans", sans-serif;
-        color: #ccc;
-        margin-bottom: 0.5rem;
+
+      /* Header */
+      .services-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
       }
-      .stats-title {
-        font-size: 2.3rem;
-        line-height: 1.3;
-        margin-bottom: 2rem;
+
+      .services-intro {
+        font-size: 1.1rem;
+        color: #555;
+        margin: 0 0 0.25rem;
+      }
+
+      .services-title {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 2.25rem;
+        line-height: 1.2;
         font-weight: 700;
+        margin: 0;
       }
-      .stats-chart {
+
+      .services-header-cta .btn-primary {
+        padding: 0.75rem 1.75rem;
+        border-radius: 999px;
+      }
+
+      /* Card grid */
+      .services-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+        align-items: stretch;
+      }
+
+      .service-card {
+        position: relative;
+        background: #fff;
+        border: 1px solid #e5e8ec;
+        padding: 2rem 1.5rem 1.5rem;
         display: flex;
-        align-items: flex-end;
-        gap: 0rem;
-        height: 300px; /* adjust as needed */
-        margin-bottom: 2rem;
-      }
-      .stats-bar {
-        --percentage: 0%;
-        --bar-color: #b1b9c1;
-        flex: 1;
-        height: var(--percentage);
-        background: var(--bar-color);
-        border-radius: 0px 0px 0 0;
+        flex-direction: column;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        min-height: 450px;
       }
-      .stats-top {
-        padding-top: 1rem;
-        text-align: center;
+
+      .service-icon {
+        width: 110px;
+        height: auto;
+        margin-bottom: 1.5rem;
       }
-      .stats-percentage {
-        font-size: 2.5rem;
-        font-family: "Poppins", sans-serif;
-        font-weight: 200;
-        color: #fff;
-      }
-      .stats-divider {
-        width: 60%;
+
+      .service-divider {
+        flex-shrink: 0;
         height: 1px;
-        background: rgba(255,255,255,0.5);
-        margin: 0.5rem auto;
+        background: #e5e8ec;
+        margin-bottom: 1.5rem;
       }
-      .stats-label {
-        margin-bottom: 1rem;
-        text-align: center;
-        font-weight: 600;
-        font-family: "Josefin Sans", sans-serif;
-        font-size: 1.2rem;
+
+      .service-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0 0 0.75rem;
+        color: #1e2a38;
+      }
+
+      .service-desc {
+        flex-grow: 1;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-link {
+        align-self: start;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #1e2a38;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .link-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #1e2a38;
         color: #fff;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        margin-right: 0.5rem;
+        font-size: 0.8rem;
       }
-      .stats-note {
-        font-size: 1.0rem;
-        font-family: "Josefin Sans", sans-serif;
-        color: #bbb;
-        text-align: center;
+
+      /* Footer */
+      .services-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
       }
-    
-      /* Responsive */
+
+      .services-footer-text {
+        font-size: 1.1rem;
+        color: #333;
+        max-width: 800px;
+        margin: 0;
+      }
+
+      .services-nav {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .nav-btn {
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(30, 42, 56, 0.1);
+        color: #1e2a38;
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .nav-btn:hover {
+        background: rgba(30, 42, 56, 0.2);
+      }
+
+      /* Decorative background (faint pattern) */
+      .services-bg {
+        position: absolute;
+        top: 50%;
+        right: -5%;
+        transform: translateY(-50%);
+        opacity: 0.15;
+        pointer-events: none;
+      }
+
+      .services-bg img {
+        max-width: 400px;
+        display: block;
+      }
+
+      /* Responsive tweaks */
       @media (max-width: 768px) {
-        .stats-chart {
-          height: 200px;
-          gap: 0.5rem;
+        .services-header {
+          grid-template-columns: 1fr;
+          text-align: center;
         }
-        .stats-title {
-          font-size: 2rem;
+
+        .services-header-cta {
+          margin-top: 1rem;
+        }
+
+        .services-footer {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .services-footer-text {
+          text-align: center;
         }
       }
     </style>
-    
-    <script>
-      // Data for your bars
-      const data = [
-        { label: 'Recruitment',      value: 95,  color: '#b1b9c1' },
-        { label: 'Time Management',  value: 88,  color: '#6e997f' },
-        { label: 'Risk Management',  value: 100, color: '#87b299' },
-        { label: 'Data Analytics',   value: 76,  color: '#717ca3' },
-        { label: 'Team Building',    value: 85,  color: '#8a93b1' },
-      ];
-    
-      const chart = document.querySelector('.stats-chart');
-    
-      data.forEach(item => {
-        const bar = document.createElement('div');
-        bar.className = 'stats-bar';
-        bar.style.setProperty('--percentage', item.value + '%');
-        bar.style.setProperty('--bar-color', item.color);
-    
-        bar.innerHTML = `
+    </head>
+
+    <body>
+      <section id="services" class="services-section">
+        <div class="container">
+
+          <!-- Header: small intro + big title + right-aligned button -->
+          <div class="services-header">
+            <div class="services-header-text">
+              <p class="services-intro">Helping in make smart financial decisions.</p>
+              <h2 class="services-title">
+                Putting the right solutions<br>
+                and methods in place.
+              </h2>
+            </div>
+            <div class="services-header-cta">
+              <a href="#all-services" class="btn btn-primary">
+                Explore All Services <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card grid -->
+          <div class="services-cards">
+            <div class="service-card">
+              <img src="img/practicecute5.png" alt="Financial Planning" class="service-icon">
+              <div class="service-divider"></div>
+              <h3 class="service-title">Financial Planning</h3>
+              <p class="service-desc">
+                Financial planning is the process of taking a comprehensive look at your financial situation & building
+                a specific financial plan to reach your goals.
+              </p>
+              <a href="#financial-planning" class="service-link">
+                <span class="link-circle">→</span> Explore More
+              </a>
+            </div>
+
+            <div class="service-card">
+              <img src="img/practicecute5.png" alt="Wealth Management" class="service-icon">
+              <div class="service-divider"></div>
+              <h3 class="service-title">Wealth Management</h3>
+              <p class="service-desc">
+                Wealth management is an investment advisory practice focused on serving the needs of wealthy
+                individuals, and practice a wide range of services.
+              </p>
+              <a href="#wealth-management" class="service-link">
+                <span class="link-circle">→</span> Explore More
+              </a>
+            </div>
+
+            <div class="service-card">
+              <img src="img/practicecute5.png" alt="Portfolio Consulting" class="service-icon">
+              <div class="service-divider"></div>
+              <h3 class="service-title">Portfolio Consulting</h3>
+              <p class="service-desc">
+                Control and tax efficiency are important to many investors. That’s why we offer many managed accounts
+                for a diverse range of investment objectives.
+              </p>
+              <a href="#portfolio-consulting" class="service-link">
+                <span class="link-circle">→</span> Explore More
+              </a>
+            </div>
+          </div>
+
+          <!-- Footer: supporting text + nav arrows -->
+          <div class="services-footer">
+            <p class="services-footer-text">
+              No matter how big you are and in what industries or sectors you do business, we can<br> help you work smarter,
+              provide support and help you achieve your business goals. Speak<br> to one of our advisers and <strong>get
+                free advice!</strong>
+            </p>
+            <div class="services-nav">
+              <button class="nav-btn prev">←</button>
+              <button class="nav-btn next">→</button>
+            </div>
+          </div>
+
+          <!-- Optional decorative background pattern -->
+          <div class="services-bg">
+            <img src="img/pattern-faint.svg" alt="" aria-hidden="true">
+          </div>
+
+        </div>
+      </section>
+
+      <!--client intro end-->
+
+
+      <style>
+        /* ==========================
+INDUSTRIES SECTION
+========================== */
+        .industries-section {
+          padding: 4rem 2rem;
+          background: #fff;
+          font-family: 'Poppins', sans-serif;
+          color: #1e2a38;
+        }
+
+        .industries-section .container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        /* Layout: title on left, list on right */
+        .industries-content {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          column-gap: 3rem;
+          align-items: start;
+        }
+
+        /* Title styling */
+        .industries-title {
+          font-family: "Poppins", sans-serif;
+          padding-right: 100px;
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 0;
+        }
+
+        /* Two‐column inside the right area */
+        .industries-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+
+        /* Each item */
+        .industry-item {
+          display: flex;
+          align-items: center;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid #e5e8ec;
+        }
+
+        /* Icon */
+        .industry-icon {
+          width: 45px;
+          height: auto;
+          margin-right: 1rem;
+          flex-shrink: 0;
+        }
+
+        /* Text */
+        .industry-name {
+          font-size: 1.1rem;
+          font-weight: 700;
+          font-family: "Josefin Sans", sans-serif;
+          line-height: 1.4;
+        }
+
+        /* Remove bottom border on last item of each column */
+        .industry-column .industry-item:last-child {
+          border-bottom: none;
+        }
+
+        /* Responsive: stack on small screens */
+        @media (max-width: 768px) {
+          .industries-content {
+            grid-template-columns: 1fr;
+          }
+
+          .industries-list {
+            grid-template-columns: 1fr;
+          }
+
+          .industries-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+          }
+        }
+      </style>
+      </head>
+
+      <body>
+        <section id="industries" class="industries-section">
+          <div class="container">
+            <div class="industries-content">
+              <!-- Left: Section title -->
+              <h2 class="industries-title">Industries</h2>
+
+              <!-- Right: Two‐column list -->
+              <div class="industries-list">
+                <div class="industry-column">
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Banking and Finance</span>
+                  </div>
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Sciences and Healthcare</span>
+                  </div>
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Government and Communities</span>
+                  </div>
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Technology and Software</span>
+                  </div>
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Power and Utilities</span>
+                  </div>
+                </div>
+                <div class="industry-column">
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Education and Training</span>
+                  </div>
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Hospitality and Leisure</span>
+                  </div>
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Manufacturing and Industry</span>
+                  </div>
+                  <div class="industry-item">
+                    <img src="img/practicecute1.png" alt="" class="industry-icon">
+                    <span class="industry-name">Automotive and Transportation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <!-- ==========================
+     STATISTICS SECTION
+     ========================== -->
+        <section id="stats" class="stats-section">
+          <div class="container">
+            <p class="stats-subtitle">
+              We build trust and maintaining a long lasting relations!
+            </p>
+            <h2 class="stats-title">
+              Our specialist team understands the<br> importance of long lasting relationships<br> with our clients to
+              deliver specific<br> investment solutions.
+            </h2>
+
+            <!-- Bars go here -->
+            <div class="stats-chart"></div>
+
+            <p class="stats-note">
+              These numbers changes and updates monthly.
+            </p>
+          </div>
+        </section>
+
+        <style>
+          .stats-section {
+            background: #0d1b2a;
+            color: #fff;
+            padding: 4rem 2rem;
+            font-family: 'Poppins', sans-serif;
+          }
+
+          .stats-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+
+          .stats-subtitle {
+            font-size: 1rem;
+            font-family: "Josefin Sans", sans-serif;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+          }
+
+          .stats-title {
+            font-size: 2.3rem;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            font-weight: 700;
+          }
+
+          .stats-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 0rem;
+            height: 300px;
+            /* adjust as needed */
+            margin-bottom: 2rem;
+          }
+
+          .stats-bar {
+            --percentage: 0%;
+            --bar-color: #b1b9c1;
+            flex: 1;
+            height: var(--percentage);
+            background: var(--bar-color);
+            border-radius: 0px 0px 0 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .stats-top {
+            padding-top: 1rem;
+            text-align: center;
+          }
+
+          .stats-percentage {
+            font-size: 2.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 200;
+            color: #fff;
+          }
+
+          .stats-divider {
+            width: 60%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0.5rem auto;
+          }
+
+          .stats-label {
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+          }
+
+          .stats-note {
+            font-size: 1.0rem;
+            font-family: "Josefin Sans", sans-serif;
+            color: #bbb;
+            text-align: center;
+          }
+
+          /* Responsive */
+          @media (max-width: 768px) {
+            .stats-chart {
+              height: 200px;
+              gap: 0.5rem;
+            }
+
+            .stats-title {
+              font-size: 2rem;
+            }
+          }
+        </style>
+
+        <script>
+          // Data for your bars
+          const data = [
+            { label: 'Recruitment', value: 95, color: '#b1b9c1' },
+            { label: 'Time Management', value: 88, color: '#6e997f' },
+            { label: 'Risk Management', value: 100, color: '#87b299' },
+            { label: 'Data Analytics', value: 76, color: '#717ca3' },
+            { label: 'Team Building', value: 85, color: '#8a93b1' },
+          ];
+
+          const chart = document.querySelector('.stats-chart');
+
+          data.forEach(item => {
+            const bar = document.createElement('div');
+            bar.className = 'stats-bar';
+            bar.style.setProperty('--percentage', item.value + '%');
+            bar.style.setProperty('--bar-color', item.color);
+
+            bar.innerHTML = `
           <div class="stats-top">
             <span class="stats-percentage">${item.value}%</span>
             <div class="stats-divider"></div>
           </div>
           <span class="stats-label">${item.label}</span>
         `;
-    
-        chart.appendChild(bar);
-      });
-    </script>
-    
 
-    
-
-
-    <style>
-      .consulting-section {
-       padding: 4rem 2rem;
-       background: #fff;
-       font-family: 'Poppins', sans-serif;
-       color: #381e32;
-      }
-      .consulting-section .container {
-       max-width: 1200px;
-       margin: 0 auto;
-      }
-      
-      /* Two-col layout */
-      .consulting-content {
-       display: grid;
-       grid-template-columns: 1fr 1fr;
-       gap: 2rem;
-       align-items: center;
-      }
-      
-      /* Image */
-      .consulting-image img {
-       width: 100%;
-       height: auto;
-       display: block;
-       border-radius: 8px;
-      }
-      
-      /* Text column */
-      .consulting-text {
-       display: flex;
-       flex-direction: column;
-       gap: 1.5rem;
-      }
-      
-      /* Subtitle / heading line */
-      .consulting-subtitle {
-       font-size: 1.5rem;
-       font-family: "Poppins", sans-serif;
-       font-weight: 600;
-       line-height: 1.3;
-       margin: 0;
-      }
-      .consulting-highlight {
-       color: #88909f;
-      }
-      
-      /* Paragraph */
-      .consulting-desc {
-       font-size: 1rem;
-       font-family: "Josefin Sans", sans-serif;
-       line-height: 1.6;
-       color: #555;
-       margin: 0;
-      }
-      
-      /* Button */
-      .btn-primary {
-       display: inline-flex;
-       align-items: center;
-       padding: 0.75rem 1.75rem;
-       background-color: #1e2a38;
-       color: #051423;
-       border-radius: 999px;
-       text-decoration: none;
-       font-weight: 500;
-       transition: background 0.2s;
-       font-family: "Josefin Sans", sans-serif;
-       width: fit-content;
-      }
-      .btn-primary .arrow {
-       margin-left: 0.5rem;
-       font-weight: 700;
-      }
-      .btn-primary:hover {
-       background-color: #16202b;
-      }
-      
-      /* Features list */
-      .consulting-features {
-       list-style: none;
-       padding: 0;
-       margin: 0;
-      }
-      .consulting-features li {
-       display: flex;
-       align-items: center;
-       padding: 0.75rem 0;
-       border-bottom: 1px solid #e5e8ec;
-       font-family: "Josefin Sans", sans-serif;
-       font-size: 1rem;
-       font-weight: 500;
-      }
-      .consulting-features li:last-child {
-       border-bottom: none;
-      }
-      .consulting-features li::before {
-       content: '✔';
-       color: #6bbf59;
-       margin-right: 0.75rem;
-       flex-shrink: 0;
-       font-size: 1.1rem;
-      }
-      
-      /* Responsive stack */
-      @media (max-width: 768px) {
-       .consulting-content {
-         grid-template-columns: 1fr;
-         text-align: center;
-       }
-       .consulting-text {
-         align-items: center;
-       }
-       .consulting-features li {
-         justify-content: center;
-       }
-      }
-      </style>
-      </head>
-      <body>
-      <section id="consulting" class="consulting-section">
-        <div class="container consulting-content">
-          <!-- Left: Image -->
-          <div class="consulting-image">
-            <img src="img/your-image.jpg" alt="Consulting overview">
-          </div>
-      
-          <!-- Right: Text, button & feature list -->
-          <div class="consulting-text">
-            <p class="consulting-subtitle">
-              A global consulting firm skilled in identifying, assessing, 
-              <span class="consulting-highlight">and solving all business challenges!</span>
-            </p>
-            <p class="consulting-desc">
-              Our team works across markets and capabilities to help establish 
-              a true strategy that addresses the realities of your business 
-              and improve the performance of work.
-            </p>
-      
-            <a href="#get-started" class="btn btn-primary">
-              Get Started <span class="arrow">→</span>
-            </a>
-      
-            <ul class="consulting-features">
-              <li>Diversity of ideas for investors funds!</li>
-              <li>Helping in make smart financial decisions.</li>
-              <li>No hidden fees, and no obligation</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+            chart.appendChild(bar);
+          });
+        </script>
 
 
 
 
 
-      <style>
-        /* =====================
+        <style>
+          .consulting-section {
+            padding: 4rem 2rem;
+            background: #fff;
+            font-family: 'Poppins', sans-serif;
+            color: #381e32;
+          }
+
+          .consulting-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+
+          /* Two-col layout */
+          .consulting-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+          }
+
+          /* Image */
+          .consulting-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+          }
+
+          /* Text column */
+          .consulting-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+
+          /* Subtitle / heading line */
+          .consulting-subtitle {
+            font-size: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0;
+          }
+
+          .consulting-highlight {
+            color: #88909f;
+          }
+
+          /* Paragraph */
+          .consulting-desc {
+            font-size: 1rem;
+            font-family: "Josefin Sans", sans-serif;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+          }
+
+          /* Button */
+          .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.75rem;
+            background-color: #1e2a38;
+            color: #051423;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            font-family: "Josefin Sans", sans-serif;
+            width: fit-content;
+          }
+
+          .btn-primary .arrow {
+            margin-left: 0.5rem;
+            font-weight: 700;
+          }
+
+          .btn-primary:hover {
+            background-color: #16202b;
+          }
+
+          /* Features list */
+          .consulting-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+
+          .consulting-features li {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e8ec;
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+
+          .consulting-features li:last-child {
+            border-bottom: none;
+          }
+
+          .consulting-features li::before {
+            content: '✔';
+            color: #6bbf59;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+          }
+
+          /* Responsive stack */
+          @media (max-width: 768px) {
+            .consulting-content {
+              grid-template-columns: 1fr;
+              text-align: center;
+            }
+
+            .consulting-text {
+              align-items: center;
+            }
+
+            .consulting-features li {
+              justify-content: center;
+            }
+          }
+        </style>
+        </head>
+
+        <body>
+          <section id="consulting" class="consulting-section">
+            <div class="container consulting-content">
+              <!-- Left: Image -->
+              <div class="consulting-image">
+                <img src="img/your-image.jpg" alt="Consulting overview">
+              </div>
+
+              <!-- Right: Text, button & feature list -->
+              <div class="consulting-text">
+                <p class="consulting-subtitle">
+                  A global consulting firm skilled in identifying, assessing,
+                  <span class="consulting-highlight">and solving all business challenges!</span>
+                </p>
+                <p class="consulting-desc">
+                  Our team works across markets and capabilities to help establish
+                  a true strategy that addresses the realities of your business
+                  and improve the performance of work.
+                </p>
+
+                <a href="#get-started" class="btn btn-primary">
+                  Get Started <span class="arrow">→</span>
+                </a>
+
+                <ul class="consulting-features">
+                  <li>Diversity of ideas for investors funds!</li>
+                  <li>Helping in make smart financial decisions.</li>
+                  <li>No hidden fees, and no obligation</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+          <style>
+            /* =====================
          THREE-FEATURE SECTION
          ===================== */
-      .features-section {
-        padding: 4rem 2rem;
-        background: #fff;
-        font-family: 'Poppins', sans-serif;
-        color: #1e2a38;
-      }
-      
-      .features-section .container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      
-      /* Top divider line */
-      .section-divider {
-        border: 0;
-        border-top: 1px solid #e5e8ec;
-        margin: 0 0 3rem;
-      }
-      
-      /* Features row: 3-column grid */
-      .features-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 2rem;
-      }
-      
-      /* Each feature block */
-      .feature-item {
-        padding: 0 2rem;
-      }
-      
-      /* Vertical separators between columns */
-      .feature-item:not(:first-child) {
-        border-left: 1px solid #e5e8ec;
-      }
-      
-      /* Icon */
-      .feature-icon {
-        width: 100px;
-        height: 100px;
-        display: block;
-        margin-bottom: 30px;
-        
-      }
-      
-      /* Title */
-      .feature-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        font-family: "Josefin Sans", sans-serif;
-        
-        margin: 1 0 0rem;
-        color: #051423;
-      }
-      
-      /* Description text */
-      .feature-desc {
-        font-size: 1rem;
-        line-height: 1.6;
-        font-family: "Josefin Sans", sans-serif;
-        color: #555;
-        margin: 0;
-      }
-      
-      /* Mobile: stack vertically and switch to horizontal separators */
-      @media (max-width: 768px) {
-        .features-list {
-          display: block;
-        }
-        .feature-item {
-          padding: 2rem 0;
-          border-left: none;
-          border-top: 1px solid #e5e8ec;
-        }
-        .feature-item:first-child {
-          border-top: none;
-        }
-      }
-      
-       </style>
-       
-       
-       <section id="features" class="features-section">
-        <div class="container">
-          <!-- horizontal divider -->
-          <hr class="section-divider">
-      
-          <!-- three-column feature row -->
-          <div class="features-list">
-            <div class="feature-item">
-              <img src="img/cutemini1.png" alt="Innovate icon" class="feature-icon">
-              <h3 class="feature-title">Innovate and learn!</h3>
-              <p class="feature-desc">
-                We believe investing this way not only can ease risk, it powers each fund with a diverse of experienced investment.
-              </p>
+            .features-section {
+              padding: 4rem 2rem;
+              background: #fff;
+              font-family: 'Poppins', sans-serif;
+              color: #1e2a38;
+            }
+
+            .features-section .container {
+              max-width: 1200px;
+              margin: 0 auto;
+            }
+
+            /* Top divider line */
+            .section-divider {
+              border: 0;
+              border-top: 1px solid #e5e8ec;
+              margin: 0 0 3rem;
+            }
+
+            /* Features row: 3-column grid */
+            .features-list {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              column-gap: 2rem;
+            }
+
+            /* Each feature block */
+            .feature-item {
+              padding: 0 2rem;
+            }
+
+            /* Vertical separators between columns */
+            .feature-item:not(:first-child) {
+              border-left: 1px solid #e5e8ec;
+            }
+
+            /* Icon */
+            .feature-icon {
+              width: 100px;
+              height: 100px;
+              display: block;
+              margin-bottom: 30px;
+
+            }
+
+            /* Title */
+            .feature-title {
+              font-size: 1.25rem;
+              font-weight: 600;
+              font-family: "Josefin Sans", sans-serif;
+
+              margin: 1 0 0rem;
+              color: #051423;
+            }
+
+            /* Description text */
+            .feature-desc {
+              font-size: 1rem;
+              line-height: 1.6;
+              font-family: "Josefin Sans", sans-serif;
+              color: #555;
+              margin: 0;
+            }
+
+            /* Mobile: stack vertically and switch to horizontal separators */
+            @media (max-width: 768px) {
+              .features-list {
+                display: block;
+              }
+
+              .feature-item {
+                padding: 2rem 0;
+                border-left: none;
+                border-top: 1px solid #e5e8ec;
+              }
+
+              .feature-item:first-child {
+                border-top: none;
+              }
+            }
+          </style>
+
+
+          <section id="features" class="features-section">
+            <div class="container">
+              <!-- horizontal divider -->
+              <hr class="section-divider">
+
+              <!-- three-column feature row -->
+              <div class="features-list">
+                <div class="feature-item">
+                  <img src="img/cutemini1.png" alt="Innovate icon" class="feature-icon">
+                  <h3 class="feature-title">Innovate and learn!</h3>
+                  <p class="feature-desc">
+                    We believe investing this way not only can ease risk, it powers each fund with a diverse of
+                    experienced investment.
+                  </p>
+                </div>
+
+                <div class="feature-item">
+                  <img src="img/cutemini2.png" alt="Impact icon" class="feature-icon">
+                  <h3 class="feature-title">Create our impact</h3>
+                  <p class="feature-desc">
+                    Financial success depends on relying on a team of experts with huge knowledge and massive experience
+                    in business.
+                  </p>
+                </div>
+
+                <div class="feature-item">
+                  <img src="img/cutemini1.png" alt="Invest icon" class="feature-icon">
+                  <h3 class="feature-title">Invest in relationships</h3>
+                  <p class="feature-desc">
+                    Keeping contact with management and spending time on location to drive deep operational
+                    understanding for you.
+                  </p>
+                </div>
+              </div>
             </div>
-      
-            <div class="feature-item">
-              <img src="img/cutemini2.png" alt="Impact icon" class="feature-icon">
-              <h3 class="feature-title">Create our impact</h3>
-              <p class="feature-desc">
-                Financial success depends on relying on a team of experts with huge knowledge and massive experience in business.
-              </p>
+          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <section id="team" class="team-section">
+            <div class="container team-content">
+              <!-- left: photo container -->
+              <div class="team-photo">
+                <img id="team-photo" src="" alt="Team member photo">
+              </div>
+
+              <!-- right: list of team members -->
+              <div class="team-list">
+                <ul>
+                  <li class="team-member" data-image="img/mike-dooley.jpg">
+                    <div class="info">
+                      <span class="name">Mozadded Ahmed Yusuf</span>
+                      <span class="role">CEO & Founder</span>
+                    </div>
+                    <div class="socials">
+                      <a href="#" class="social-link facebook" aria-label="Facebook"></a>
+                      <a href="#" class="social-link twitter" aria-label="Twitter"></a>
+                      <a href="#" class="social-link linkedin" aria-label="LinkedIn"></a>
+                    </div>
+                  </li>
+                  <li class="team-member" data-image="img/maria-andaloro.jpg">
+                    <div class="info">
+                      <span class="name">Maria Andaloro</span>
+                      <span class="role">Managing Partner</span>
+                    </div>
+                    <div class="socials">
+                      <a href="#" class="social-link facebook"></a>
+                      <a href="#" class="social-link twitter"></a>
+                      <a href="#" class="social-link linkedin"></a>
+                    </div>
+                  </li>
+                  <li class="team-member" data-image="img/michael-brian.jpg">
+                    <div class="info">
+                      <span class="name">Michael Brian</span>
+                      <span class="role">Portfolio Manager</span>
+                    </div>
+                    <div class="socials">
+                      <a href="#" class="social-link facebook"></a>
+                      <a href="#" class="social-link twitter"></a>
+                      <a href="#" class="social-link linkedin"></a>
+                    </div>
+                  </li>
+                  <!-- repeat for other members... -->
+                </ul>
+              </div>
             </div>
+          </section>
+
+          <style>
+            /* ======= TEAM SECTION ======= */
+            .team-section {
+              padding: 4rem 2rem;
+              font-family: 'Josefin Sans', sans-serif;
+              color: #1e2a38;
+            }
+
+            .team-content {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 2rem;
+              align-items: start;
+              max-width: 1200px;
+              margin: 0 auto;
+            }
+
+            /* photo area */
+            .team-photo {
+              height: 350px;
+              background: #f0f0f0;
+              border-radius: 8px;
+              overflow: hidden;
+              position: relative;
+            }
+
+            .team-photo img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              opacity: 0;
+              transition: opacity 0.4s ease;
+            }
+
+            .team-photo img.visible {
+              opacity: 1;
+            }
+
+            /* list area */
+            .team-list ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+            }
+
+            .team-member {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 1rem 0;
+              border-bottom: 1px solid #e5e8ec;
+              cursor: pointer;
+              transition: background 0.2s;
+            }
+
+            .team-member:last-child {
+              border-bottom: none;
+            }
+
+            .team-member:hover {
+              background: rgba(30, 42, 56, 0.05);
+            }
+
+            /* name/role */
+            .info {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .name {
+              font-weight: 600;
+              font-size: 1.125rem;
+            }
+
+            .role {
+              font-size: 0.95rem;
+              color: #555;
+            }
+
+            /* social icons (use your own SVGs in img/icons/) */
+            .socials {
+              display: flex;
+              gap: 0.75rem;
+            }
+
+            .social-link {
+              width: 24px;
+              height: 24px;
+              background-size: contain;
+              background-repeat: no-repeat;
+              opacity: 0.3;
+              transition: opacity 0.2s;
+            }
+
+            .social-link:hover {
+              opacity: 1;
+            }
+
+            .facebook {
+              background-image: url('img/icons/facebook.svg');
+            }
+
+            .twitter {
+              background-image: url('img/icons/twitter.svg');
+            }
+
+            .linkedin {
+              background-image: url('img/icons/linkedin.svg');
+            }
+
+            /* make sure it degrades nicely */
+            @media (max-width: 768px) {
+              .team-content {
+                grid-template-columns: 1fr;
+              }
+
+              .team-photo {
+                margin-bottom: 2rem;
+              }
+            }
+          </style>
+
+          <script>
+            // hover logic
+            document.querySelectorAll('.team-member').forEach(member => {
+              const img = document.getElementById('team-photo');
+
+              member.addEventListener('mouseenter', () => {
+                const src = member.getAttribute('data-image');
+                img.src = src;
+                img.classList.add('visible');
+              });
+
+              member.addEventListener('mouseleave', () => {
+                img.classList.remove('visible');
+              });
+            });
+          </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--client intro end-->  
+
+      <section id="client-carousel" class="bg-gray-200">
+        <div class="overflow-x-auto scroll-smooth snap-x snap-mandatory flex items-center space-x-4 py-8 max-w-full">
       
-            <div class="feature-item">
-              <img src="img/cutemini1.png" alt="Invest icon" class="feature-icon">
-              <h3 class="feature-title">Invest in relationships</h3>
-              <p class="feature-desc">
-                Keeping contact with management and spending time on location to drive deep operational understanding for you.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>       
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <section id="team" class="team-section">
-        <div class="container team-content">
-          <!-- left: photo container -->
-          <div class="team-photo">
-            <img id="team-photo" src="" alt="Team member photo">
-          </div>
-      
-          <!-- right: list of team members -->
-          <div class="team-list">
-            <ul>
-              <li class="team-member" data-image="img/mike-dooley.jpg">
-                <div class="info">
-                  <span class="name">Mozadded Ahmed Yusuf</span>
-                  <span class="role">CEO & Founder</span>
-                </div>
-                <div class="socials">
-                  <a href="#" class="social-link facebook" aria-label="Facebook"></a>
-                  <a href="#" class="social-link twitter"  aria-label="Twitter"></a>
-                  <a href="#" class="social-link linkedin" aria-label="LinkedIn"></a>
-                </div>
-              </li>
-              <li class="team-member" data-image="img/maria-andaloro.jpg">
-                <div class="info">
-                  <span class="name">Maria Andaloro</span>
-                  <span class="role">Managing Partner</span>
-                </div>
-                <div class="socials">
-                  <a href="#" class="social-link facebook"></a>
-                  <a href="#" class="social-link twitter"></a>
-                  <a href="#" class="social-link linkedin"></a>
-                </div>
-              </li>
-              <li class="team-member" data-image="img/michael-brian.jpg">
-                <div class="info">
-                  <span class="name">Michael Brian</span>
-                  <span class="role">Portfolio Manager</span>
-                </div>
-                <div class="socials">
-                  <a href="#" class="social-link facebook"></a>
-                  <a href="#" class="social-link twitter"></a>
-                  <a href="#" class="social-link linkedin"></a>
-                </div>
-              </li>
-              <!-- repeat for other members... -->
-            </ul>
-          </div>
-        </div>
-      </section>
-      
-      <style>
-      /* ======= TEAM SECTION ======= */
-      .team-section {
-        padding: 4rem 2rem;
-        font-family: 'Josefin Sans', sans-serif;
-        color: #1e2a38;
-      }
-      .team-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        align-items: start;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      
-      /* photo area */
-      .team-photo {
-        height: 350px;
-        background: #f0f0f0;
-        border-radius: 8px;
-        overflow: hidden;
-        position: relative;
-      }
-      .team-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-      .team-photo img.visible {
-        opacity: 1;
-      }
-      
-      /* list area */
-      .team-list ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      .team-member {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 0;
-        border-bottom: 1px solid #e5e8ec;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .team-member:last-child {
-        border-bottom: none;
-      }
-      .team-member:hover {
-        background: rgba(30,42,56,0.05);
-      }
-      
-      /* name/role */
-      .info {
-        display: flex;
-        flex-direction: column;
-      }
-      .name {
-        font-weight: 600;
-        font-size: 1.125rem;
-      }
-      .role {
-        font-size: 0.95rem;
-        color: #555;
-      }
-      
-      /* social icons (use your own SVGs in img/icons/) */
-      .socials {
-        display: flex;
-        gap: 0.75rem;
-      }
-      .social-link {
-        width: 24px;
-        height: 24px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        opacity: 0.3;
-        transition: opacity 0.2s;
-      }
-      .social-link:hover {
-        opacity: 1;
-      }
-      .facebook  { background-image: url('img/icons/facebook.svg'); }
-      .twitter   { background-image: url('img/icons/twitter.svg'); }
-      .linkedin  { background-image: url('img/icons/linkedin.svg'); }
-      
-      /* make sure it degrades nicely */
-      @media (max-width: 768px) {
-        .team-content {
-          grid-template-columns: 1fr;
-        }
-        .team-photo {
-          margin-bottom: 2rem;
-        }
-      }
-      </style>
-      
-      <script>
-      // hover logic
-      document.querySelectorAll('.team-member').forEach(member => {
-        const img = document.getElementById('team-photo');
-      
-        member.addEventListener('mouseenter', () => {
-          const src = member.getAttribute('data-image');
-          img.src = src;
-          img.classList.add('visible');
-        });
-      
-        member.addEventListener('mouseleave', () => {
-          img.classList.remove('visible');
-        });
-      });
-      </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section id="client-carousel" class="bg-gray-200">
-  <div class="overflow-x-auto scroll-smooth snap-x snap-mandatory flex space-x-4 py-8 max-w-full">
-    <div class="snap-start flex-shrink-0 pl-8">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo1.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo13.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo3.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo4.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo5.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo6.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo7.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo8.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo9.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo10.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo11.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo12.png" />
-      </div>
-    </div>
-    <div class="snap-start flex-shrink-0 pr-8">
-      <div class="bg-white shadow-none p-2">
-        <img class="w-32 h-32 object-cover" src="img/clogo13.png" />
-      </div>
-    </div>
-  </div>
+<div class="snap-start flex-shrink-0 pl-8">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo1ASM industries.jpg" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo2fasion top limited.jpg" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo3ASM Polymer Industries Limited.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo4SSS corporation.jpg" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo5CDZ.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo6MR SKY EXIM.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo7qocept.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo8meghna.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo9comoda.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo10parkwaysecurities.jpg" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo11Dhanmondi kidney general Hospital.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo12expert associate.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0 ">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo13super specialized hospital.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0 ">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo14building care technologies limited.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0 ">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo15cricket entertainment.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0 ">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo16Narshindi Adhunik.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0 ">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo17parrots trade link.png" />
+</div>
+</div>
+<div class="snap-start flex-shrink-0 ">
+<div class="bg-white shadow-none ">
+<img class="w-32 h-32 object-cover" src="img/clogo18desh consortium.png" />
+</div>
+</div>            
+</div>
 </section>
 
 
 
-<style>
-  /* =========================
+          <style>
+            /* =========================
    CONTACT SECTION
    ========================= */
-.contact-section {
-  /* dark background + subtle overlay */
-  background:
-    linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.5)),
-    url('img/your-bg.jpg') center/cover no-repeat;
-  color: #fff;
-  padding: 4rem 2rem;
-  font-family: 'Josefin Sans', sans-serif;
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: start;
-}
+            .contact-section {
+              /* dark background + subtle overlay */
+              background:
+                linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)),
+                url('img/your-bg.jpg') center/cover no-repeat;
+              color: #fff;
+              padding: 4rem 2rem;
+              font-family: 'Josefin Sans', sans-serif;
+            }
 
-/* ---- Left side ---- */
-.contact-heading {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-.contact-sub {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 1.5rem;
-}
-.contact-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0.75rem 1.5rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn-primary {
-  background: #fff;
-  color: #1e2a38;
-}
-.btn-primary:hover {
-  background: #f2f2f2;
-}
-.btn-outline {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-}
-.btn-outline:hover {
-  background: rgba(255,255,255,0.1);
-}
-.arrow {
-  margin-left: 0.5rem;
-  font-weight: 700;
-}
-.contact-features {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.contact-features li {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-.contact-features li::before {
-  content: '✔';
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #6bbf59;
-  color: #fff;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-}
+            .contact-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 3rem;
+              max-width: 1200px;
+              margin: 0 auto;
+              align-items: start;
+            }
 
-/* ---- Right side ---- */
-.contact-right {
-  position: relative;
-}
-/* White card */
-.contact-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  color: #1e2a38;
-}
-.card-title {
-  margin: 0 0 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
+            /* ---- Left side ---- */
+            .contact-heading {
+              font-size: 2rem;
+              font-weight: 700;
+              line-height: 1.2;
+              margin-bottom: 1rem;
+            }
 
-/* Form grid */
-.contact-form .form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem 2rem;
-  margin-bottom: 1.5rem;
-}
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.75rem 0;
-  border: 0;
-  border-bottom: 1px solid #ccc;
-  font-size: 0.95rem;
-  background: transparent;
-  outline: none;
-}
-.contact-form select {
-  appearance: none; /* hide default arrow */
-  background-image: url('img/icons/arrow-down.svg');
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-}
-.contact-form textarea {
-  grid-column: 1 / -1;
-  resize: vertical;
-}
+            .contact-sub {
+              font-size: 1rem;
+              line-height: 1.6;
+              color: rgba(255, 255, 255, 0.85);
+              margin-bottom: 1.5rem;
+            }
 
-/* Submit button */
-.form-submit {
-  grid-column: 1 / -1;
-  margin-top: 1rem;
-  background: #1e2a38;
-  color: #fff;
-  border: none;
-  width: fit-content;
-}
+            .contact-buttons {
+              display: flex;
+              gap: 1rem;
+              margin-bottom: 2rem;
+            }
 
-/* Grey base under card */
-.card-base {
-  height: 40px;
-  background: #ccc;
-  border-radius: 0 0 8px 8px;
-  margin-top: -8px; /* tuck under the white card’s bottom corners */
-  z-index: -1;
-  position: relative;
-}
+            .btn {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 999px;
+              padding: 0.75rem 1.5rem;
+              font-weight: 500;
+              text-decoration: none;
+              transition: all 0.2s;
+            }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  .contact-right {
-    margin-top: 2rem;
-  }
-}
+            .btn-primary {
+              background: #fff;
+              color: #1e2a38;
+            }
 
-</style> 
-  </head>
+            .btn-primary:hover {
+              background: #f2f2f2;
+            }
 
-<body>
-  <section id="contact" class="contact-section">
-    <div class="container contact-grid">
-    
-      <!-- LEFT SIDE (dark overlay + copy) -->
-      <div class="contact-left">
-        <h2 class="contact-heading">
-          No matter industries you do business in, our team will help you work smarter and achieve all goals.
-        </h2>
-        <p class="contact-sub">
-          Our specialist team of consultants understands the importance of maintaining a long lasting business relationships with clients to deliver specific investment solutions for a long success.
-        </p>
-        <div class="contact-buttons">
-          <a href="#pricing" class="btn btn-primary">Pricing &amp; Plans <span class="arrow">→</span></a>
-          <a href="#contact" class="btn btn-outline">Contact Us</a>
-        </div>
-        <ul class="contact-features">
-          <li>Highly qualified consultants at service.</li>
-          <li>Consulting services tailored to your needs.</li>
-          <li>Strategy designed to solve challenges.</li>
-          <li>426 Completed cases in last 5 years.</li>
-        </ul>
-      </div>
-    
-      <!-- RIGHT SIDE (white form card + grey base) -->
-      <div class="contact-right">
-        <div class="contact-card">
-          <h3 class="card-title">Schedule a free consultation!</h3>
-          <form class="contact-form">
-            <div class="form-grid">
-              <input type="text" placeholder="Your Name" required>
-              <input type="email" placeholder="Email Address" required>
-              
-              <input type="text" placeholder="Company Name" required>
-              <input type="tel" placeholder="Phone Number" required>
-              
-              <input type="url" placeholder="Website">
-              <select>
-                <option disabled selected>Budget</option>
-                <option>$5k–10k</option>
-                <option>$10k–25k</option>
-                <option>$25k+</option>
-              </select>
-              
-              <select>
-                <option disabled selected>Industry</option>
-                <option>Banking & Finance</option>
-                <option>Healthcare</option>
-                <option>Technology</option>
-              </select>
-              <select>
-                <option disabled selected>Expertise</option>
-                <option>Strategy</option>
-                <option>Analysis</option>
-                <option>Risk Management</option>
-              </select>
-              
-              <textarea placeholder="Kindly provide enough information about your business…" rows="4"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit">
-              Submit Request <span class="arrow">→</span>
-            </button>
-          </form>
-        </div>
-        <div class="card-base"></div>
-      </div>
-    
-    </div>
-  </section>
+            .btn-outline {
+              background: transparent;
+              color: #fff;
+              border: 2px solid #fff;
+            }
+
+            .btn-outline:hover {
+              background: rgba(255, 255, 255, 0.1);
+            }
+
+            .arrow {
+              margin-left: 0.5rem;
+              font-weight: 700;
+            }
+
+            .contact-features {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+
+            .contact-features li {
+              position: relative;
+              padding-left: 2rem;
+              margin-bottom: 1rem;
+              font-size: 0.95rem;
+            }
+
+            .contact-features li::before {
+              content: '✔';
+              position: absolute;
+              left: 0;
+              top: 0;
+              background: #6bbf59;
+              color: #fff;
+              border-radius: 50%;
+              width: 20px;
+              height: 20px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 0.8rem;
+            }
+
+            /* ---- Right side ---- */
+            .contact-right {
+              position: relative;
+            }
+
+            /* White card */
+            .contact-card {
+              background: #fff;
+              padding: 2rem;
+              border-radius: 8px;
+              color: #1e2a38;
+            }
+
+            .card-title {
+              margin: 0 0 1.5rem;
+              font-size: 1.25rem;
+              font-weight: 600;
+            }
+
+            /* Form grid */
+            .contact-form .form-grid {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 1rem 2rem;
+              margin-bottom: 1.5rem;
+            }
+
+            .contact-form input,
+            .contact-form select,
+            .contact-form textarea {
+              width: 100%;
+              padding: 0.75rem 0;
+              border: 0;
+              border-bottom: 1px solid #ccc;
+              font-size: 0.95rem;
+              background: transparent;
+              outline: none;
+            }
+
+            .contact-form select {
+              appearance: none;
+              /* hide default arrow */
+              background-image: url('img/icons/arrow-down.svg');
+              background-repeat: no-repeat;
+              background-position: right 0.75rem center;
+            }
+
+            .contact-form textarea {
+              grid-column: 1 / -1;
+              resize: vertical;
+            }
+
+            /* Submit button */
+            .form-submit {
+              grid-column: 1 / -1;
+              margin-top: 1rem;
+              background: #1e2a38;
+              color: #fff;
+              border: none;
+              width: fit-content;
+            }
+
+            /* Grey base under card */
+            .card-base {
+              height: 40px;
+              background: #ccc;
+              border-radius: 0 0 8px 8px;
+              margin-top: -8px;
+              /* tuck under the white card’s bottom corners */
+              z-index: -1;
+              position: relative;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+              .contact-grid {
+                grid-template-columns: 1fr;
+              }
+
+              .contact-right {
+                margin-top: 2rem;
+              }
+            }
+          </style>
+          </head>
+
+          <body>
+            <section id="contact" class="contact-section">
+              <div class="container contact-grid">
+
+                <!-- LEFT SIDE (dark overlay + copy) -->
+                <div class="contact-left">
+                  <h2 class="contact-heading">
+                    No matter industries you do business in, our team will help you work smarter and achieve all goals.
+                  </h2>
+                  <p class="contact-sub">
+                    Our specialist team of consultants understands the importance of maintaining a long lasting business
+                    relationships with clients to deliver specific investment solutions for a long success.
+                  </p>
+                  <div class="contact-buttons">
+                    <a href="#pricing" class="btn btn-primary">Pricing &amp; Plans <span class="arrow">→</span></a>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                  </div>
+                  <ul class="contact-features">
+                    <li>Highly qualified consultants at service.</li>
+                    <li>Consulting services tailored to your needs.</li>
+                    <li>Strategy designed to solve challenges.</li>
+                    <li>426 Completed cases in last 5 years.</li>
+                  </ul>
+                </div>
+
+                <!-- RIGHT SIDE (white form card + grey base) -->
+                <div class="contact-right">
+                  <div class="contact-card">
+                    <h3 class="card-title">Schedule a free consultation!</h3>
+                    <form class="contact-form">
+                      <div class="form-grid">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email Address" required>
+
+                        <input type="text" placeholder="Company Name" required>
+                        <input type="tel" placeholder="Phone Number" required>
+
+                        <input type="url" placeholder="Website">
+                        <select>
+                          <option disabled selected>Budget</option>
+                          <option>$5k–10k</option>
+                          <option>$10k–25k</option>
+                          <option>$25k+</option>
+                        </select>
+
+                        <select>
+                          <option disabled selected>Industry</option>
+                          <option>Banking & Finance</option>
+                          <option>Healthcare</option>
+                          <option>Technology</option>
+                        </select>
+                        <select>
+                          <option disabled selected>Expertise</option>
+                          <option>Strategy</option>
+                          <option>Analysis</option>
+                          <option>Risk Management</option>
+                        </select>
+
+                        <textarea placeholder="Kindly provide enough information about your business…"
+                          rows="4"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary form-submit">
+                        Submit Request <span class="arrow">→</span>
+                      </button>
+                    </form>
+                  </div>
+                  <div class="card-base"></div>
+                </div>
+
+              </div>
+            </section>
 
 
 
 
-  <style>
-    /* =========================
+            <style>
+              /* =========================
      FOOTER
      ========================= */
-  .footer-section {
-    background: #0d1b2a;
-    color: #fff;
-    font-family: 'Josefin Sans', sans-serif;
-    padding: 3rem 2rem;
-  }
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-  .footer-logo img {
-    width: 24px;
-    height: auto;
-  }
-  .footer-contact a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 1.5rem;
-    font-size: 0.95rem;
-  }
-  .social-links {
-    display: inline-flex;
-    gap: 1rem;
-  }
-  .social-links a {
-    width: 32px;
-    height: 32px;
-    display: block;
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-  .social-links a:hover {
-    opacity: 1;
-  }
-  .facebook  { background-image: url('img/icons/facebook.svg'); }
-  .twitter   { background-image: url('img/icons/twitter.svg'); }
-  .linkedin  { background-image: url('img/icons/linkedin.svg'); }
-  
-  .footer-divider {
-    border: none;
-    border-top: 1px solid #2e3a4a;
-    margin: 1.5rem 0;
-  }
-  
-  .footer-middle {
-    display: grid;
-    grid-template-columns: 2fr 5fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  /* Newsletter */
-  .newsletter p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-  .newsletter-form {
-    position: relative;
-  }
-  .newsletter-form input {
-    width: 100%;
-    padding-bottom: 0.5rem;
-    border: none;
-    border-bottom: 1px solid #555;
-    background: transparent;
-    color: #fff;
-    font-size: 0.95rem;
-  }
-  .newsletter-form input::placeholder {
-    color: #bbb;
-  }
-  .newsletter-form button {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.25rem;
-    cursor: pointer;
-  }
-  
-  /* Link columns */
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-  }
-  .footer-col h4 {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  .footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .footer-col li {
-    margin-bottom: 0.6rem;
-  }
-  .footer-col a {
-    color: #bbb;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-  }
-  .footer-col a:hover {
-    color: #fff;
-  }
-  
-  /* Bottom legal */
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #2e3a4a;
-    padding-top: 1rem;
-    font-size: 0.85rem;
-  }
-  .legal-links a {
-    color: #bbb;
-    text-decoration: none;
-    margin: 0 0.5rem;
-    transition: color 0.2s;
-  }
-  .legal-links a:hover {
-    color: #fff;
-  }
-  .copyright a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  /* Mobile stacking */
-  @media (max-width: 768px) {
-    .footer-top,
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 0.75rem;
-    }
-    .footer-middle {
-      grid-template-columns: 1fr;
-    }
-    .footer-links {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
-  </style>
-    
-  
-    
-    <footer class="footer-section">
-      <!-- Top bar: logo + contact + socials -->
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="img/ayc_logo.png" alt="Finanzia logo">
-          <span>Ahmed Yusuf & Co. Chartered Accountants</span>
-        </div>
-        <div class="footer-contact">
-          <a href="mailto:Finanzia@cmsheroes.com">ayc@gmail.com</a>
-          <a href="tel:+201161145741">+2 011 6114 5741</a>
-          <div class="social-links">
-            <a href="#" class="facebook" aria-label="Facebook"></a>
-            <a href="#" class="twitter"  aria-label="Twitter"></a>
-            <a href="#" class="linkedin" aria-label="LinkedIn"></a>
-          </div>
-        </div>
-      </div>
-    
-      <hr class="footer-divider">
-    
-      <!-- Middle: newsletter signup + link columns -->
-      <div class="footer-middle">
-        <!-- Newsletter -->
-        <div class="newsletter">
-          <p>
-            Sign up for alerts, monthly insights, strategic business perspectives and exclusive content in your inbox.
-          </p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Your Email Address" required>
-            <button type="submit" aria-label="Subscribe">&rarr;</button>
-          </form>
-        </div>
-    
-        <!-- Link columns -->
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>About</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Sustainability</a></li>
-              <li><a href="#">Leadership Team</a></li>
-              <li><a href="#">News & Media</a></li>
-              <li><a href="#">Careers</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#">Financial Planning</a></li>
-              <li><a href="#">Wealth Management</a></li>
-              <li><a href="#">Portfolio Consulting</a></li>
-              <li><a href="#">Mergers & Acquisitions</a></li>
-              <li><a href="#">Sustainability Assurance</a></li>
-              <li><a href="#">Crisis Management</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Industries</h4>
-            <ul>
-              <li><a href="#">Banking & Finance</a></li>
-              <li><a href="#">Sciences & Healthcare</a></li>
-              <li><a href="#">Technology & Software</a></li>
-              <li><a href="#">Education & Training</a></li>
-              <li><a href="#">Hospitality & Leisure</a></li>
-              <li><a href="#">Power & Utilities</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    
-      <!-- Bottom: legal + copyright -->
-      <div class="footer-bottom">
-        <div class="legal-links">
-          <a href="#">Terms & Conditions</a>
-          <span>|</span>
-          <a href="#">Privacy Policy</a>
-        </div>
-        <div class="copyright">
-          ©2025 AYC, All Rights Reserved.  <a href="#"></a>
-        </div>
-      </div>
-    </footer>
+              .footer-section {
+                background: #0d1b2a;
+                color: #fff;
+                font-family: 'Josefin Sans', sans-serif;
+                padding: 3rem 2rem;
+              }
+
+              .footer-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .footer-logo {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 1.25rem;
+                font-weight: 600;
+              }
+
+              .footer-logo img {
+                width: 24px;
+                height: auto;
+              }
+
+              .footer-contact a {
+                color: #fff;
+                text-decoration: none;
+                margin-right: 1.5rem;
+                font-size: 0.95rem;
+              }
+
+              .social-links {
+                display: inline-flex;
+                gap: 1rem;
+              }
+
+              .social-links a {
+                width: 32px;
+                height: 32px;
+                display: block;
+                background-size: 20px;
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: 0.7;
+                transition: opacity 0.2s;
+              }
+
+              .social-links a:hover {
+                opacity: 1;
+              }
+
+              .facebook {
+                background-image: url('img/icons/facebook.svg');
+              }
+
+              .twitter {
+                background-image: url('img/icons/twitter.svg');
+              }
+
+              .linkedin {
+                background-image: url('img/icons/linkedin.svg');
+              }
+
+              .footer-divider {
+                border: none;
+                border-top: 1px solid #2e3a4a;
+                margin: 1.5rem 0;
+              }
+
+              .footer-middle {
+                display: grid;
+                grid-template-columns: 2fr 5fr;
+                gap: 2rem;
+                margin-bottom: 2rem;
+              }
+
+              /* Newsletter */
+              .newsletter p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+              }
+
+              .newsletter-form {
+                position: relative;
+              }
+
+              .newsletter-form input {
+                width: 100%;
+                padding-bottom: 0.5rem;
+                border: none;
+                border-bottom: 1px solid #555;
+                background: transparent;
+                color: #fff;
+                font-size: 0.95rem;
+              }
+
+              .newsletter-form input::placeholder {
+                color: #bbb;
+              }
+
+              .newsletter-form button {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.25rem;
+                cursor: pointer;
+              }
+
+              /* Link columns */
+              .footer-links {
+                display: flex;
+                gap: 2rem;
+              }
+
+              .footer-col h4 {
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                font-weight: 600;
+              }
+
+              .footer-col ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+              }
+
+              .footer-col li {
+                margin-bottom: 0.6rem;
+              }
+
+              .footer-col a {
+                color: #bbb;
+                text-decoration: none;
+                font-size: 0.95rem;
+                transition: color 0.2s;
+              }
+
+              .footer-col a:hover {
+                color: #fff;
+              }
+
+              /* Bottom legal */
+              .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid #2e3a4a;
+                padding-top: 1rem;
+                font-size: 0.85rem;
+              }
+
+              .legal-links a {
+                color: #bbb;
+                text-decoration: none;
+                margin: 0 0.5rem;
+                transition: color 0.2s;
+              }
+
+              .legal-links a:hover {
+                color: #fff;
+              }
+
+              .copyright a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+              }
+
+              /* Mobile stacking */
+              @media (max-width: 768px) {
+
+                .footer-top,
+                .footer-bottom {
+                  flex-direction: column;
+                  text-align: center;
+                  gap: 0.75rem;
+                }
+
+                .footer-middle {
+                  grid-template-columns: 1fr;
+                }
+
+                .footer-links {
+                  flex-direction: column;
+                  align-items: center;
+                }
+              }
+            </style>
+
+
+
+            <footer class="footer-section">
+              <!-- Top bar: logo + contact + socials -->
+              <div class="footer-top">
+                <div class="footer-logo">
+                  <img src="img/ayc_logo.png" alt="Finanzia logo">
+                  <span>Ahmed Yusuf & Co. Chartered Accountants</span>
+                </div>
+                <div class="footer-contact">
+                  <a href="mailto:Finanzia@cmsheroes.com">ayc@gmail.com</a>
+                  <a href="tel:+201161145741">+2 011 6114 5741</a>
+                  <div class="social-links">
+                    <a href="#" class="facebook" aria-label="Facebook"></a>
+                    <a href="#" class="twitter" aria-label="Twitter"></a>
+                    <a href="#" class="linkedin" aria-label="LinkedIn"></a>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="footer-divider">
+
+              <!-- Middle: newsletter signup + link columns -->
+              <div class="footer-middle">
+                <!-- Newsletter -->
+                <div class="newsletter">
+                  <p>
+                    Sign up for alerts, monthly insights, strategic business perspectives and exclusive content in your
+                    inbox.
+                  </p>
+                  <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit" aria-label="Subscribe">&rarr;</button>
+                  </form>
+                </div>
+
+                <!-- Link columns -->
+                <div class="footer-links">
+                  <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Sustainability</a></li>
+                      <li><a href="#">Leadership Team</a></li>
+                      <li><a href="#">News & Media</a></li>
+                      <li><a href="#">Careers</a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                      <li><a href="#">Financial Planning</a></li>
+                      <li><a href="#">Wealth Management</a></li>
+                      <li><a href="#">Portfolio Consulting</a></li>
+                      <li><a href="#">Mergers & Acquisitions</a></li>
+                      <li><a href="#">Sustainability Assurance</a></li>
+                      <li><a href="#">Crisis Management</a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-col">
+                    <h4>Industries</h4>
+                    <ul>
+                      <li><a href="#">Banking & Finance</a></li>
+                      <li><a href="#">Sciences & Healthcare</a></li>
+                      <li><a href="#">Technology & Software</a></li>
+                      <li><a href="#">Education & Training</a></li>
+                      <li><a href="#">Hospitality & Leisure</a></li>
+                      <li><a href="#">Power & Utilities</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom: legal + copyright -->
+              <div class="footer-bottom">
+                <div class="legal-links">
+                  <a href="#">Terms & Conditions</a>
+                  <span>|</span>
+                  <a href="#">Privacy Policy</a>
+                </div>
+                <div class="copyright">
+                  ©2025 AYC, All Rights Reserved. <a href="#"></a>
+                </div>
+              </div>
+            </footer>
 
 
 
 
 
-</body>
+          </body>
+
 </html>
-
-
-
-
-  
-                                          
