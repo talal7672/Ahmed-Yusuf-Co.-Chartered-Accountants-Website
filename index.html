@@ -1167,38 +1167,47 @@ INDUSTRIES SECTION
 
         <style>
           .consulting-section {
-            padding: 4rem 2rem;
+            padding: 4rem 0rem;
             background: #fff;
             font-family: 'Poppins', sans-serif;
             color: #381e32;
           }
 
-          .consulting-section .container {
-            max-width: 1200px;
-            margin: 0 auto;
-          }
+.consulting-section .container {
+  max-width: none;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 0rem;
+}
+
+
 
           /* Two-col layout */
-          .consulting-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-          }
+.consulting-content {
+  display: grid;
+  grid-template-columns: 65% 35%; /* or 2fr 1fr */
+  gap: 2rem;
+  align-items: center;
+ 
+}
 
-          /* Image */
-          .consulting-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-          }
+
+
+.consulting-image img {
+  width: 95%;
+  height: auto;
+  display: block;
+
+}
+
 
           /* Text column */
           .consulting-text {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            margin-left: 10px;
+            
           }
 
           /* Subtitle / heading line */
@@ -1208,6 +1217,7 @@ INDUSTRIES SECTION
             font-weight: 600;
             line-height: 1.3;
             margin: 0;
+           
           }
 
           .consulting-highlight {
@@ -1216,9 +1226,9 @@ INDUSTRIES SECTION
 
           /* Paragraph */
           .consulting-desc {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-family: "Josefin Sans", sans-serif;
-            line-height: 1.6;
+            line-height: 1.4;
             color: #555;
             margin: 0;
           }
@@ -1260,8 +1270,8 @@ INDUSTRIES SECTION
             padding: 0.75rem 0;
             border-bottom: 1px solid #e5e8ec;
             font-family: "Josefin Sans", sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 600;
           }
 
           .consulting-features li:last-child {
@@ -1299,7 +1309,7 @@ INDUSTRIES SECTION
             <div class="container consulting-content">
               <!-- Left: Image -->
               <div class="consulting-image">
-                <img src="img/your-image.jpg" alt="Consulting overview">
+                <img src="img/girl_TT.webp" alt="Consulting overview">
               </div>
 
               <!-- Right: Text, button & feature list -->
@@ -1376,7 +1386,7 @@ INDUSTRIES SECTION
               width: 100px;
               height: 100px;
               display: block;
-              margin-bottom: 30px;
+              margin-bottom: 10px;
 
             }
 
@@ -1385,6 +1395,7 @@ INDUSTRIES SECTION
               font-size: 1.25rem;
               font-weight: 600;
               font-family: "Josefin Sans", sans-serif;
+              margin-bottom: 10px;
 
               margin: 1 0 0rem;
               color: #051423;
@@ -1674,7 +1685,7 @@ INDUSTRIES SECTION
 
 
 
-      <!--client intro end-->  
+      <!--client intro end-->   
 
       <section id="client-carousel" class="bg-gray-200">
         <div class="overflow-x-auto scroll-smooth snap-x snap-mandatory flex items-center space-x-4 py-8 max-w-full">
