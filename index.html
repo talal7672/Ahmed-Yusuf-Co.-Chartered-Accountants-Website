@@ -136,101 +136,103 @@
 
     /* Responsive */
 @media (max-width: 768px) {
-  /* ─── Slim navbar & flex wrapper ─── */
+  /* ─── Navbar & stacking ─── */
   .navbar {
-    height: 55px !important;
+    position: relative;
+    z-index: 2000;
+    height: 75px !important;
   }
   .navbar .containers {
     display: flex !important;
-    justify-content: flex-start !important;
     align-items: center !important;
-    height: 55px !important;
     padding: 0 16px !important;
+    height: 75px !important;
   }
 
-  /* ─── Logo shrink & reset margin ─── */
+  /* ─── Logo & toggle on top ─── */
+  .navbar .logo,
+  .navbar .nav-toggle {
+    position: relative;
+    z-index: 2001;
+  }
   .navbar .logo {
     margin-left: 0 !important;
   }
   .navbar .logo img {
     max-height: 30px !important;
   }
-
-  /* ─── Show burger, push it right ─── */
   .navbar .nav-toggle {
     display: block !important;
     margin-left: auto !important;
     padding: 4px !important;
-    z-index: 1001 !important;
   }
   .navbar .nav-toggle .bar {
     width: 20px;
     height: 2px;
     margin: 3px 0;
-    transition: all 0.3s ease !important;
+    transform-origin: center;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+  }
+  .navbar.open .nav-toggle .bar:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 2px);
+  }
+  .navbar.open .nav-toggle .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar.open .nav-toggle .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, -2px);
   }
 
-  /* ─── Hide desktop links/actions ─── */
-  .navbar .nav-links,
+  /* ─── Hide desktop-only actions ─── */
   .navbar .nav-actions {
     display: none !important;
   }
 
-  /* ─── Off‐canvas dropdown under 55px bar ─── */
+  /* ─── Off-canvas dropdown (FULL-SCREEN) ─── */
   .navbar .nav-links {
-    margin: 0 !important;
-    padding: 0 !important;
+    /* only these two lines changed! */
     position: fixed !important;
-    top: 55px !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
+    inset: 0 !important;
+
+    /* rest is exactly your original design */
+    margin: 0 !important;
+    padding: 75px 0 0 !important;    /* push links just below the 75px bar */
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 28px !important;
     background: #fff !important;
-
-    /* start hidden */
     transform: translateY(-100%) !important;
-    opacity: 0 !important;
     pointer-events: none !important;
-    transition: transform 0.3s ease, opacity 0.3s ease !important;
+    transition: transform 0.6s ease-in-out !important;
     z-index: 1000 !important;
   }
   .navbar.open .nav-links {
-    /* slide down/up will be handled by your JS */
     transform: translateY(0) !important;
-    opacity: 1 !important;
     pointer-events: auto !important;
   }
 
-  /* ─── Lock scroll behind menu ─── */
+  /* ─── Link sizing animation ─── */
+  .navbar .nav-links a {
+    transition: font-size 0.3s ease, padding 0.3s ease;
+  }
+  .navbar.open .nav-links a {
+    font-size: 1.5rem !important;
+    padding: 0.75rem 0 !important;
+  }
+
+  /* ─── Block background scroll ─── */
   body.nav-open {
     overflow: hidden !important;
   }
 }
 
-/* ─── Pull links up & enlarge them on mobile ─── */
-@media (max-width: 768px) {
-  .navbar .nav-links {
-    /* remove any top padding from earlier tweaks */
-    padding-top: 0 !important;
-    /* center items vertically in the remaining viewport below the 55px bar */
-    justify-content: center !important;
-  }
-}
 
-  .navbar.open .nav-links {
-    /* add a little breathing room */
-    padding-top: 1rem !important;
-  }
 
-  .navbar.open .nav-links a {
-    font-size: 1.5rem !important;     /* bump up from 20px to 24px */
-    padding: 0.75rem 0 !important;    /* larger tap targets */
-  }
+
+
+
 
 
 
@@ -280,38 +282,17 @@
 
 
 <script>
-  const nav     = document.querySelector('.navbar');
-  const toggle  = document.querySelector('.nav-toggle');
-  const links   = document.querySelector('.nav-links');
+  const nav    = document.querySelector('.navbar');
+  const toggle = document.querySelector('.nav-toggle');
 
   toggle.addEventListener('click', () => {
-    if (!nav.classList.contains('open')) {
-      nav.classList.add('open');
-      document.body.classList.add('nav-open');
-      links.animate([
-        { transform: 'translateY(-100%)', opacity: 0 },
-        { transform: 'translateY(0)',        opacity: 1 }
-      ], {
-        duration: 400,
-        easing: 'ease-out',
-        fill: 'forwards'
-      });
-    } else {
-      const anim = links.animate([
-        { transform: 'translateY(0)',        opacity: 1 },
-        { transform: 'translateY(-100%)', opacity: 0 }
-      ], {
-        duration: 300,
-        easing: 'ease-in',
-        fill: 'forwards'
-      });
-      anim.onfinish = () => {
-        nav.classList.remove('open');
-        document.body.classList.remove('nav-open');
-      };
-    }
+    // flip the menu state
+    nav.classList.toggle('open');
+    document.body.classList.toggle('nav-open');
   });
 </script>
+
+
 
 
 
@@ -452,14 +433,45 @@
 
 /* mobile */
 @media (max-width: 768px) {
-  .hero-section { min-height: 70vh; }
+  .hero-section { min-height: 90vh; }
   .hero-content {
     text-align: center;
   }
-  .hero-content h2 { font-size: 2.6rem; }
-  .subtitle { font-size: 1rem; }
-  .hero-content article {font-size: 1.2rem;}
+  .hero-content h2 { font-size: 1.7rem; text-align: left; }
+  .subtitle { font-size: 1rem; display: none; }
+  .hero-content article {font-size: 1.2rem; display: none;}
+  
 }
+
+@media (max-width: 768px) {
+  /* force a block so parent text-align: center won’t affect it */
+  .hero-section .hero-content .hero-buttons {
+    display: block !important;
+    width: 55% !important;
+             /* span full width */
+    text-align: left !important;     /* left-align inline children if any */
+    margin: 0 !important;            /* kill any auto margins */
+    padding: 0;                      /* if you need to reset padding */
+  }
+
+  /* override your .btn’s centering */
+  .hero-section .hero-content .hero-buttons > a.btn {
+    display: inline-block;           /* or block */
+    text-align: left !important;     /* left-align the text inside the button */
+    margin: 0 !important;            /* remove any centering margins */
+  }
+}
+
+  .hero-section .hero-content .hero-buttons > a.btn {
+    font-size: 0.8rem;      /* tweak this value until you like it */
+    /* (optional) adjust padding so it still looks balanced */
+    padding: 0.5rem 1rem;
+  }
+
+
+
+
+
 
 </style>
 
